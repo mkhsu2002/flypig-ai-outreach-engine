@@ -2,19 +2,77 @@
 
 English | [繁體中文](README.zh-TW.md)
 
-An open-source Skill system for disciplined LLM prospect research and qualification.
-
-FlyPig AI Outreach Engine helps a business turn an ambiguous market-development idea into a researched, evidence-backed Qualified Prospect Tracker.
-
-It does not try to make the underlying LLM smarter.
-
-It makes important research behaviors explicit, mandatory, stateful, and auditable.
+An open-source LLM-native Skill system for disciplined prospect research and qualification.
 
 > LLM knows how. FlyPig makes sure the process actually requires it.
 
-No FlyPig runtime, API, dedicated UI, or multi-agent framework is required.
+## Read this first: what this repository actually is
 
-A single capable LLM is the default execution model. ChatGPT, Claude, OpenClaw, Hermes Agents, or another suitable environment can execute the Skills sequentially.
+FlyPig AI Outreach Engine Open Core is a set of LLM-readable operating instructions, schemas, templates, and validation cases.
+
+It is designed to be read and executed directly by a capable LLM or Agent environment such as ChatGPT, Claude, OpenClaw, Hermes Agents, or another compatible system.
+
+There is nothing to install or deploy.
+
+Minimum environment:
+
+```text
+A capable LLM / Agent
+Current web research access
+Your business / product / market context
+Enough state continuity to maintain one canonical Tracker
+```
+
+Primary output:
+
+```text
+Qualified Prospect Tracker
+```
+
+The public workflow stops there.
+
+## What this repository is NOT
+
+This Open Core is not:
+
+```text
+A web scraper
+A LinkedIn automation tool
+A lead-harvesting crawler
+An email-personalization engine
+A cold-email sender
+A multi-channel outreach platform
+An inbox / reply tracking system
+A CRM execution service
+A Python service
+An n8n workflow
+A Docker application
+A SaaS runtime
+```
+
+The Open Core does not require:
+
+```text
+Python
+Node.js
+Docker
+Docker Compose
+n8n
+SMTP
+SendGrid
+Apollo
+SerpAPI
+Apify
+An OpenAI API key specifically
+A FlyPig API
+A FlyPig server
+A proprietary FlyPig UI
+A mandatory multi-agent framework
+```
+
+If an AI describes this repository as a deployable Python/n8n/Docker outreach system, or says that it sends email, scrapes LinkedIn, personalizes cold messages, or tracks replies, that interpretation is incorrect for the public v0.1.0 Open Core.
+
+For the authoritative scope boundary, also see `AGENTS.md` and `docs/04_REQUIREMENTS.md`.
 
 ## Why this project exists
 
@@ -36,31 +94,11 @@ Fact and hypothesis began to blur
 The original market objective became less visible
 ```
 
-That drift also affected downstream outreach. A polished message can still be commercially wrong if the model has misunderstood whether the recipient is a distributor, retailer, manufacturer, integrator, or buyer.
+That drift can later contaminate downstream business communication. A polished message can still be commercially wrong if the underlying research has confused a distributor, retailer, manufacturer, integrator, or buyer.
 
 FlyPig was created to make the critical research checks persistent instead of hoping the model remembers them throughout a long task.
 
 See `docs/15_WHY_FLYPIG_EXISTS.md`.
-
-## Primary output: Qualified Prospect Tracker
-
-The Open Core maintains one canonical Tracker throughout the campaign.
-
-Near the beginning, the LLM should offer a lightweight storage choice:
-
-```text
-Google Sheets  RECOMMENDED when connected
-Local CSV      DEFAULT
-Other          optional
-```
-
-If the user does not choose, use local CSV based on:
-
-`templates/PROSPECT_TRACKER.csv`
-
-The Tracker is not a disposable final report. Discovery begins populating it and later Skills update the same records.
-
-See `docs/13_PROSPECT_TRACKER.md`.
 
 ## Public workflow
 
@@ -89,6 +127,28 @@ Qualified Prospect Tracker
 ```
 
 A prospect cannot reach `SHORTLIST_READY` without `AUDIT_PASS`.
+
+## Primary output: Qualified Prospect Tracker
+
+The Open Core maintains one canonical Tracker throughout the campaign.
+
+Near the beginning, the LLM should offer a lightweight storage choice:
+
+```text
+Google Sheets  RECOMMENDED when connected
+Local CSV      DEFAULT
+Other          optional
+```
+
+If the user does not choose, use local CSV based on:
+
+`templates/PROSPECT_TRACKER.csv`
+
+The Tracker is not a disposable final report. Discovery begins populating it and later Skills update the same records.
+
+PASS, HOLD, and SECONDARY records remain useful research memory instead of disappearing from context.
+
+See `docs/13_PROSPECT_TRACKER.md`.
 
 ## Mandatory reliability controls
 
@@ -187,7 +247,7 @@ FlyPig
 → turns critical practices into required operating discipline
 ```
 
-The control result led directly to the new Discovery Diversity Check in the Core.
+The control result directly motivated the Discovery Diversity Check now included in the Core.
 
 See `validation/control-test-03-naked-llm/COMPARISON.md`.
 
@@ -263,7 +323,9 @@ See `validation/README.md` for execution logs, masked Trackers, case studies, li
 
 ## Five-minute start
 
-Tell a compatible LLM to read this repository, then say something like:
+There is no installation step.
+
+Give a compatible LLM access to this repository, then say something like:
 
 ```text
 Use FlyPig AI Outreach Engine.
@@ -323,30 +385,32 @@ The Open Core should remain useful without them.
 
 See `docs/10_KNOWLEDGE_PACK_INTERFACE.md`.
 
-## Where the Open Core stops
+## Open Core boundary
 
-The public project intentionally stops at the Qualified Prospect Tracker.
+The public v0.1.0 repository ends at researched, audited, contact-route-aware Qualified Prospect Tracker records.
 
-It does not include FlyPig's private Controlled Outreach layer for:
+Downstream message preparation, sending, mailbox/reply operations, and follow-up are outside this Open Core and are intentionally not implemented here.
+
+See `docs/07_OPEN_CORE.md` for the product boundary.
+
+## Landing page and test pages
+
+Static site source:
 
 ```text
-Account-specific formal outreach strategy
-Message preparation
-Independent pre-send review
-Approval-controlled sending
-Mailbox monitoring
-Reply classification
-Bounce / opt-out operations
-Controlled follow-up
-Execution audit trail
+docs/index.html
+docs/test-01.html
+docs/test-02.html
+docs/test-03.html
 ```
 
-The commercial layer begins after the qualified Tracker and focuses on operating real outreach safely and consistently.
+The site is intentionally plain HTML/CSS/JavaScript and requires no build environment.
 
 ## Repository map
 
 ```text
 QUICK_START.md
+AGENTS.md
 
 skills/
   INTERACTION_PROTOCOL.md
@@ -364,6 +428,10 @@ schemas/
   state-machine.yaml
 
 docs/
+  index.html
+  test-01.html
+  test-02.html
+  test-03.html
   00_OVERVIEW.md
   01_NO_CODE_GUIDE.md
   02_ARCHITECTURE.md
@@ -423,6 +491,8 @@ FlyPig AI names, logos, and product identifiers are separate trademarks. See `TR
 Business user: `QUICK_START.md`
 
 LLM / Agent operator: `prompts/START_HERE.md`
+
+AI interpretation boundary: `AGENTS.md`
 
 Why FlyPig exists: `docs/15_WHY_FLYPIG_EXISTS.md`
 
