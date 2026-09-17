@@ -1,267 +1,159 @@
-<!doctype html>
-<html lang="en" data-language="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="FlyPig AI Outreach Engine is an open-source LLM-native prospect research and qualification workflow built for process reliability across long, stateful business-development research.">
-  <title>FlyPig AI Outreach Engine v0.1.0</title>
-  <link rel="stylesheet" href="assets/site.css">
-  <script defer src="assets/site.js"></script>
-</head>
-<body>
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="index.html">FlyPig <span>AI</span> Outreach Engine</a>
-    <nav class="nav-links" aria-label="Primary">
-      <a class="active" href="index.html"><span data-lang="en">Overview</span><span data-lang="zh">總覽</span></a>
-      <a href="test-01.html">Test 01</a>
-      <a href="test-02.html">Test 02</a>
-      <a href="test-03.html">Test 03</a>
-      <a class="keep" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine">GitHub</a>
-    </nav>
-    <div class="lang-toggle" aria-label="Language">
-      <button type="button" data-set-lang="en">EN</button>
-      <button type="button" data-set-lang="zh">繁中</button>
-    </div>
-  </div>
-</header>
-
+<!doctype html><html lang="en" data-language="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="FlyPig AI Outreach Engine: an open-source LLM-native process-reliability layer for prospect research and qualification.">
+<title>FlyPig AI Outreach Engine v0.1.0</title><link rel="stylesheet" href="assets/site.css"><script defer src="assets/site.js"></script>
+</head><body><header class="site-header"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="brand-mark">FlyPig AI</span><span class="brand-sub">Research Systems</span></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a class="active" href="index.html">Overview</a>
+    <a href="test-01.html">Research I</a>
+    <a href="test-02.html">Research II</a>
+    <a href="test-03.html">Research III</a>
+    <a href="managed-service.html">Managed Execution</a>
+    <a class="keep" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine">GitHub</a>
+  </nav>
+  <div class="lang-toggle"><button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="zh">繁中</button></div>
+  </div></header>
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <div data-lang="en">
-        <div class="eyebrow">Open Core · v0.1.0 · LLM-native</div>
-        <h1>Prospect research that keeps its discipline when the conversation gets long.</h1>
-        <p class="lead">FlyPig AI Outreach Engine does not try to make the LLM smarter. It turns critical prospect-research practices into required operating discipline: deduplication, evidence checks, search diversity, skeptical audit, persistent state, and explicit stopping rules.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine">View on GitHub</a>
-          <a class="btn secondary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/QUICK_START.md">5-minute start</a>
-          <a class="btn secondary" href="#validation">See validation</a>
-        </div>
-      </div>
-      <div data-lang="zh">
-        <div class="eyebrow">Open Core · v0.1.0 · LLM-native</div>
-        <h1>當對話越來越長，仍然維持紀律的 Prospect Research。</h1>
-        <p class="lead">FlyPig AI Outreach Engine 並不是要讓 LLM 更聰明，而是把潛在客戶研究中重要的好習慣變成流程強制要求：Dedup、Evidence、Discovery Diversity、skeptical Audit、持久狀態，以及明確的停止條件。</p>
-        <div class="cta-row">
-          <a class="btn primary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine">前往 GitHub</a>
-          <a class="btn secondary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/QUICK_START.md">5 分鐘開始</a>
-          <a class="btn secondary" href="#validation">查看驗證</a>
-        </div>
-      </div>
-
-      <div class="scope-strip">
-        <div class="scope-item"><div class="k">Runtime</div><div class="v"><span data-lang="en">Your LLM / Agent</span><span data-lang="zh">你的 LLM / Agent</span></div></div>
-        <div class="scope-item"><div class="k">Install</div><div class="v"><span data-lang="en">Nothing to deploy</span><span data-lang="zh">沒有任何服務要部署</span></div></div>
-        <div class="scope-item"><div class="k">Primary output</div><div class="v">Qualified Prospect Tracker</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>What it is — and what it is not.</h2>
-        <p>This repository is a set of LLM-readable operating contracts, not a deployable outreach application.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>它是什麼，也不是什麼。</h2>
-        <p>這個 Repository 是讓 LLM 直接讀取的 operating contracts，不是一套要部署的 Outreach Application。</p>
-      </div>
-      <div class="goodbad">
-        <div class="good">
-          <h3 data-lang="en">This Open Core is</h3><h3 data-lang="zh">這個 Open Core 是</h3>
-          <p data-lang="en">An LLM-native research workflow with Skills, schemas, templates, persistent Tracker state, validation artifacts, and explicit reliability gates.</p>
-          <p data-lang="zh">一套 LLM-native research workflow，包含 Skills、schemas、templates、persistent Tracker、validation artifacts 與明確的 reliability gates。</p>
-        </div>
-        <div class="bad">
-          <h3 data-lang="en">This Open Core is not</h3><h3 data-lang="zh">這個 Open Core 不是</h3>
-          <p data-lang="en">A scraper, LinkedIn bot, email-personalization engine, cold-email sender, reply tracker, CRM executor, Python service, n8n workflow, Docker app, or SaaS runtime.</p>
-          <p data-lang="zh">Scraper、LinkedIn bot、Email personalization engine、Cold-email sender、Reply tracker、CRM executor、Python service、n8n workflow、Docker app 或 SaaS runtime。</p>
-        </div>
-      </div>
-      <div class="callout" style="margin-top:18px">
-        <h3 data-lang="en">No installation step</h3><h3 data-lang="zh">沒有安裝步驟</h3>
-        <p data-lang="en">Give a capable LLM access to the repository and your business context. The LLM environment is the runtime; the conversation is the interface.</p>
-        <p data-lang="zh">把 Repository 與你的 business context 交給能力足夠的 LLM 即可。LLM environment 就是 runtime；conversation 就是 interface。</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>Why FlyPig exists.</h2>
-        <p>Naked LLM research was often surprisingly good. The failure mode appeared later: dozens of turns into the same mission.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>為什麼會有 FlyPig。</h2>
-        <p>裸 LLM 的研究成果往往出乎意料地好。真正的問題通常出現在同一任務進行了幾十輪之後。</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="tag">01 · Drift</div>
-          <h3 data-lang="en">The target quietly changes</h3><h3 data-lang="zh">目標悄悄改變</h3>
-          <p data-lang="en">A distributor search gradually admits retailers, manufacturers, and adjacent companies without an explicit mission decision.</p>
-          <p data-lang="zh">原本找 distributor，後來 retailer、manufacturer、相鄰公司慢慢都被放進來，但 Mission 並沒有正式改變。</p>
-        </div>
-        <div class="card">
-          <div class="tag">02 · Memory</div>
-          <h3 data-lang="en">Rejected research disappears</h3><h3 data-lang="zh">排除過的研究消失</h3>
-          <p data-lang="en">Weak accounts are rediscovered because the prior decision lived only in conversation instead of one canonical Tracker.</p>
-          <p data-lang="zh">弱 prospect 因為先前決策只存在對話中，而沒有保存在 canonical Tracker，之後又被重新找到。</p>
-        </div>
-        <div class="card">
-          <div class="tag">03 · Downstream risk</div>
-          <h3 data-lang="en">Good writing, wrong context</h3><h3 data-lang="zh">文字很好，商業語境卻錯了</h3>
-          <p data-lang="en">Once business-role research drifts, later communication can sound polished while speaking to the recipient as the wrong kind of organization.</p>
-          <p data-lang="zh">一旦 business role 研究飄移，後續文字即使很流暢，也可能用完全錯誤的角色假設與對方溝通。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>The public workflow.</h2>
-        <p>One capable LLM can execute every stage sequentially. Multiple agents are optional.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>公開版工作流程。</h2>
-        <p>同一個能力足夠的 LLM 就可以依序執行全部階段；Multi-Agent 並不是必要條件。</p>
-      </div>
-      <div class="workflow">
-        <div class="step"><small>01</small><strong>Mission Discovery</strong></div>
-        <div class="step"><small>02</small><strong>Tracker Setup</strong></div>
-        <div class="step"><small>03</small><strong>Prospect Discovery</strong></div>
-        <div class="step"><small>04</small><strong>Dedup Gate</strong></div>
-        <div class="step"><small>05</small><strong>Discovery Diversity</strong></div>
-        <div class="step"><small>06</small><strong>Account Research</strong></div>
-        <div class="step"><small>07</small><strong>Qualification</strong></div>
-        <div class="step"><small>08</small><strong>Prospect Audit</strong></div>
-        <div class="step"><small>09</small><strong>Contact Verification</strong></div>
-        <div class="step"><small>10</small><strong>Qualified Prospect Tracker</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>What FlyPig makes mandatory.</h2>
-        <p>The product thesis is not “the LLM does not know.” It is “the process should not depend on whether the model remembers every good practice this time.”</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>FlyPig 強制要求什麼。</h2>
-        <p>核心命題不是「LLM 不知道怎麼做」，而是「不能把流程品質賭在模型這一次剛好有沒有記得每個好習慣」。</p>
-      </div>
-      <div class="grid-3">
-        <div class="card"><h3>Canonical Tracker</h3><p data-lang="en">One persistent campaign record, including rejected and lower-priority research.</p><p data-lang="zh">一份持續更新的 campaign record，包含被排除與低優先的研究結果。</p></div>
-        <div class="card"><h3>Dedup before insertion</h3><p data-lang="en">Aliases, domains, parent entities, and related identities are checked before a new row exists.</p><p data-lang="zh">Alias、domain、parent entity 與 related identity 在新建 row 前先檢查。</p></div>
-        <div class="card"><h3>Evidence discipline</h3><p data-lang="en">Material role and fit decisions need supportable current evidence.</p><p data-lang="zh">重要的 role 與 fit 判斷必須有可支持的目前 evidence。</p></div>
-        <div class="card"><h3>Discovery Diversity</h3><p data-lang="en">Before convergence, test whether another organization type or route could satisfy the objective better.</p><p data-lang="zh">Search space 收斂前，先檢查是否有另一種 organization type 或 route 更能達成目標。</p></div>
-        <div class="card"><h3>Skeptical Prospect Audit</h3><p data-lang="en">Every QUALIFIED prospect is challenged under the question: what would make this decision wrong?</p><p data-lang="zh">每一個 QUALIFIED prospect 都必須接受「什麼證據會證明剛才判斷是錯的？」的反向 Audit。</p></div>
-        <div class="card"><h3>Batch review + stop rules</h3><p data-lang="en">Long runs periodically review drift and stop when marginal discovery value falls.</p><p data-lang="zh">長流程定期檢查 drift，並在新增搜尋的邊際價值下降時明確停止。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="validation">
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>Validated on three different failure modes.</h2>
-        <p>Each Golden Test was designed to stress a different part of the process rather than repeat the same demo three times.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>三個 Test，驗證三種不同失敗模式。</h2>
-        <p>三組 Golden Test 不是重複同一個 Demo，而是刻意壓測流程中不同的風險。</p>
-      </div>
-      <div class="grid-3">
-        <a class="card link-card" href="test-01.html">
-          <div class="tag">Golden Test 01 · Japan</div>
-          <h3 data-lang="en">Role classification + skeptical audit</h3><h3 data-lang="zh">角色分類 + skeptical audit</h3>
-          <p data-lang="en">Could the system keep retailer, importer, distributor, manufacturer, and market-entry roles separate across a long run?</p>
-          <p data-lang="zh">長流程裡，系統能否持續區分 retailer、importer、distributor、manufacturer 與 market-entry partner？</p>
-        </a>
-        <a class="card link-card" href="test-02.html">
-          <div class="tag">Golden Test 02 · Germany</div>
-          <h3 data-lang="en">Mission Revision under evidence</h3><h3 data-lang="zh">Evidence 驅動 Mission Revision</h3>
-          <p data-lang="en">Could research overturn a distributor-first assumption when system integrators and engineering firms were the stronger route?</p>
-          <p data-lang="zh">當市場 evidence 顯示 system integrator 與工程商更重要時，流程能否修正原本 distributor-first 的假設？</p>
-        </a>
-        <a class="card link-card" href="test-03.html">
-          <div class="tag">Golden Test 03 · Canada</div>
-          <h3 data-lang="en">ICP discovery + dogfooding + control</h3><h3 data-lang="zh">ICP Discovery + Dogfooding + Control</h3>
-          <p data-lang="en">Could FlyPig infer who should care about FlyPig itself — and what happens when a fresh naked LLM solves the same problem?</p>
-          <p data-lang="zh">FlyPig 能不能自己找出「誰最該在意 FlyPig」？而全新的裸 LLM 做同一題時又會發生什麼？</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>The control result was strong. That is the point.</h2>
-        <p>A fresh GPT-5.6 Sol run without FlyPig produced a useful 15-prospect Canadian strategy. FlyPig should not compete with the intelligence of the model.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>Control Run 很強，這反而才是重點。</h2>
-        <p>全新的 GPT-5.6 Sol 在不用 FlyPig 的情況下，也做出了實用的 15 家加拿大 prospect 策略。FlyPig 不應該和底層模型的 intelligence 競爭。</p>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div class="tag">Naked LLM</div>
-          <h3 data-lang="en">Excellent one-shot judgment</h3><h3 data-lang="zh">優秀的一次性判斷</h3>
-          <p data-lang="en">Strong synthesis, natural prioritization, and broader creativity around accelerators, communities, and amplification channels.</p>
-          <p data-lang="zh">很好的 synthesis、自然 prioritization，而且在 accelerator、community、amplification channel 上甚至比 FlyPig Test 03 更有創意。</p>
-        </div>
-        <div class="card">
-          <div class="tag">FlyPig Process</div>
-          <h3 data-lang="en">Required operating discipline</h3><h3 data-lang="zh">強制 operating discipline</h3>
-          <p data-lang="en">Formal dedup, persistent rejected records, mandatory audit coverage, mission versions, route state, batch review, and explicit stopping logic.</p>
-          <p data-lang="zh">正式 Dedup、保留 rejected records、mandatory Audit coverage、mission version、route state、batch review 與明確 stop logic。</p>
-        </div>
-      </div>
-      <div class="callout" style="margin-top:18px">
-        <h3>LLM knows how. FlyPig makes sure the process actually requires it.</h3>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-title" data-lang="en">
-        <h2>Start with a normal business thought.</h2>
-        <p>No intake form and no infrastructure setup are required.</p>
-      </div>
-      <div class="section-title" data-lang="zh">
-        <h2>從正常的商業想法開始。</h2>
-        <p>不需要先填 intake form，也不需要先架任何 infrastructure。</p>
-      </div>
-      <div class="codebox">Use FlyPig AI Outreach Engine.
-
-We sell commercial water-monitoring equipment. I want to explore Southeast Asia, but I am not sure whether the right targets are distributors, engineering partners, or direct industrial customers.
-
-Help me clarify the mission.
-Research public facts before asking me questions.
-Build and maintain a Qualified Prospect Tracker.
-Follow every mandatory dedup, diversity, evidence, audit, and batch-review gate.
-Do not write or send outreach messages.</div>
-      <div class="cta-row">
-        <a class="btn primary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/prompts/START_HERE.md"><span data-lang="en">Open START_HERE prompt</span><span data-lang="zh">開啟 START_HERE Prompt</span></a>
-        <a class="btn secondary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/validation/README.md"><span data-lang="en">Inspect validation artifacts</span><span data-lang="zh">查看 Validation Artifacts</span></a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap footer-row">
-    <div>FlyPig AI Outreach Engine v0.1.0 · Apache-2.0 Open Core</div>
-    <div><a href="https://github.com/mkhsu2002/flypig-ai-outreach-engine">GitHub</a> · <a href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/README.md">README</a> · <a href="https://github.com/mkhsu2002/flypig-ai-outreach-engine/blob/main/AGENTS.md">AI Scope</a></div>
+<section class="paper-hero"><div class="wrap">
+  <div class="kicker">Open Research System · v0.1.0 · FlyPig AI</div>
+  <h1 data-lang="en">A process-reliability layer for long-horizon LLM prospect research.</h1>
+  <h1 data-lang="zh">為長流程 LLM 潛在客戶研究建立一層 Process Reliability。</h1>
+  <p class="hero-dek" data-lang="en">FlyPig AI Outreach Engine does not attempt to make the model smarter. It makes critical research behaviors explicit, persistent, and auditable when a business-development mission spans dozens of research turns.</p>
+  <p class="hero-dek" data-lang="zh">FlyPig AI Outreach Engine 不試圖讓底層模型變得更聰明；它的目標，是當一個市場開發任務跨越數十輪研究時，仍讓關鍵研究行為保持明確、持久且可稽核。</p>
+  <div class="research-meta">
+    <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value">Open Core · v0.1.0</div></div>
+    <div class="meta-item"><div class="meta-label">Runtime</div><div class="meta-value">LLM / Agent Environment</div></div>
+    <div class="meta-item"><div class="meta-label">Primary Artifact</div><div class="meta-value">Qualified Prospect Tracker</div></div>
+    <div class="meta-item"><div class="meta-label">License</div><div class="meta-value">Apache-2.0</div></div>
   </div>
-</footer>
-</body>
-</html>
+  <div class="abstract">
+    <div class="abstract-label">Abstract</div>
+    <p data-lang="en">General-purpose LLMs can already produce surprisingly strong prospect research. The practical failure emerges later: as the same mission grows longer, target definitions drift, prior exclusions disappear from working memory, evidence standards become uneven, and downstream communication can inherit the wrong commercial assumptions. FlyPig treats this as an operating-process problem rather than an intelligence problem.</p>
+    <p data-lang="zh">通用 LLM 本來就能做出出乎意料地好的 Prospect Research。真正的失敗通常出現在後面：同一任務越做越長，Target Definition 開始漂移、曾經排除的對象從 Working Memory 消失、Evidence 標準變得不一致，最後連後續溝通都可能繼承錯誤的商業角色假設。FlyPig 把這件事視為 Operating Process 問題，而不是 Intelligence 問題。</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><div class="sec-no">01</div><div>
+    <h2 data-lang="en">The research problem: long conversations change the mission.</h2>
+    <h2 data-lang="zh">研究問題：對話變長後，Mission 會悄悄改變。</h2>
+    <p data-lang="en">The repository originated from repeated FlyPig use of naked LLMs in real international business-development work.</p>
+    <p data-lang="zh">這個 Repository 的起點，來自 FlyPig 在大量真實海外市場開發工作中，反覆使用裸 LLM 所累積的問題。</p>
+  </div></div>
+  <div class="three-col">
+    <article class="paper-card"><div class="index">Failure A · Role Drift</div><h3 data-lang="en">The target category broadens silently</h3><h3 data-lang="zh">目標類型在沒有決策的情況下慢慢放寬</h3><p data-lang="en">A distributor search can gradually admit retailers, manufacturers, or adjacent firms even though the mission never formally changed.</p><p data-lang="zh">原本找 Distributor，後來 Retailer、Manufacturer、Adjacent Firm 都可能慢慢被放進名單，但 Mission 從未正式改版。</p></article>
+    <article class="paper-card"><div class="index">Failure B · State Loss</div><h3 data-lang="en">Rejected research is rediscovered</h3><h3 data-lang="zh">排除過的 Prospect 又被重新找到</h3><p data-lang="en">Without one canonical record, earlier PASS / HOLD decisions vanish into conversation history and the system repeats work.</p><p data-lang="zh">沒有一份 Canonical Record，先前的 PASS / HOLD 決策會淹沒在對話裡，之後又重新研究一次。</p></article>
+    <article class="paper-card"><div class="index">Failure C · Downstream Risk</div><h3 data-lang="en">Polished writing can still be commercially wrong</h3><h3 data-lang="zh">文案很漂亮，商業語境仍可能完全錯誤</h3><p data-lang="en">If a retailer is mistaken for a distributor or an OEM for a buyer, later communication can be fluent yet inappropriate.</p><p data-lang="zh">如果 Retailer 被當成 Distributor，或 OEM 被當成 Buyer，後續信件即使流暢，措辭仍可能不恰當。</p></article>
+  </div>
+  <div class="claim-box"><p data-lang="en">“LLM knows how. FlyPig makes sure the process actually requires it.”</p><p data-lang="zh">「LLM 本來就知道怎麼做；FlyPig 確保流程真的要求它去做。」</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><div class="sec-no">02</div><div>
+    <h2 data-lang="en">Method: convert good model behavior into required process.</h2>
+    <h2 data-lang="zh">方法：把模型「可能會做的好習慣」變成「流程強制要求」。</h2>
+    <p data-lang="en">One capable LLM is the default. Multi-agent orchestration is optional.</p>
+    <p data-lang="zh">預設就是一個能力足夠的 LLM。Multi-Agent Orchestration 是可選，不是必要條件。</p>
+  </div></div>
+  <div class="workflow">
+    <div class="workflow-step"><span class="n">01</span><strong>Mission Discovery</strong></div>
+    <div class="workflow-step"><span class="n">02</span><strong>Tracker Setup</strong></div>
+    <div class="workflow-step"><span class="n">03</span><strong>Prospect Discovery</strong></div>
+    <div class="workflow-step"><span class="n">04</span><strong>Dedup Gate</strong></div>
+    <div class="workflow-step"><span class="n">05</span><strong>Discovery Diversity</strong></div>
+    <div class="workflow-step"><span class="n">06</span><strong>Account Research</strong></div>
+    <div class="workflow-step"><span class="n">07</span><strong>Qualification</strong></div>
+    <div class="workflow-step"><span class="n">08</span><strong>Prospect Audit</strong></div>
+    <div class="workflow-step"><span class="n">09</span><strong>Contact Verification</strong></div>
+    <div class="workflow-step"><span class="n">10</span><strong>Qualified Prospect Tracker</strong></div>
+  </div>
+  <table class="evidence-table">
+    <thead><tr><th>Control</th><th data-lang="en">Why it exists</th><th data-lang="zh">存在的理由</th><th data-lang="en">Required behavior</th><th data-lang="zh">強制行為</th></tr></thead>
+    <tbody>
+      <tr><td>Canonical Tracker</td><td data-lang="en">Prevents research memory from dissolving across turns.</td><td data-lang="zh">避免研究記憶隨著對話輪次消失。</td><td data-lang="en">Preserve QUALIFIED, SECONDARY, HOLD, and PASS.</td><td data-lang="zh">保留 QUALIFIED、SECONDARY、HOLD、PASS。</td></tr>
+      <tr><td>Dedup Gate</td><td data-lang="en">Search results repeatedly rediscover the same organization.</td><td data-lang="zh">不同搜尋會反覆找到同一個組織。</td><td data-lang="en">Check domain, aliases, parent identity, local/English names before insertion.</td><td data-lang="zh">新增前先檢查 Domain、Alias、Parent Identity、在地／英文名稱。</td></tr>
+      <tr><td>Evidence Discipline</td><td data-lang="en">Category similarity is not proof of commercial role.</td><td data-lang="zh">關鍵字或類別相似，不等於商業角色正確。</td><td data-lang="en">Material role and fit claims require supportable evidence.</td><td data-lang="zh">重要的 Role / Fit 判斷必須有可支持的 Evidence。</td></tr>
+      <tr><td>Prospect Audit</td><td data-lang="en">Qualification can become self-confirming.</td><td data-lang="zh">Qualification 很容易變成自我合理化。</td><td data-lang="en">Every QUALIFIED prospect is re-read from a skeptical stance.</td><td data-lang="zh">每個 QUALIFIED Prospect 都必須從反方立場重新檢視。</td></tr>
+      <tr><td>Discovery Diversity</td><td data-lang="en">A rigorous search can still be rigorous inside the wrong search space.</td><td data-lang="zh">流程再嚴謹，也可能只是在太窄的 Search Space 裡嚴謹。</td><td data-lang="en">Test materially different adoption / market-entry paths before convergence.</td><td data-lang="zh">收斂前先測試實質不同的採用／市場進入路徑。</td></tr>
+    </tbody>
+  </table>
+  <div class="scope-note"><strong data-lang="en">Scope boundary.</strong><strong data-lang="zh">範圍界線。</strong>
+    <div data-lang="en">The public v0.1.0 Open Core is an LLM-native research and qualification workflow. It is not a scraper, LinkedIn automation tool, email sender, reply tracker, Python service, n8n workflow, Docker app, or SaaS runtime. There is nothing to install or deploy.</div>
+    <div data-lang="zh">Public v0.1.0 Open Core 是 LLM-native 的研究與資格判定流程。它不是 Scraper、LinkedIn 自動化、寄信系統、Reply Tracker、Python Service、n8n Workflow、Docker App 或 SaaS Runtime。沒有任何服務需要安裝或部署。</div>
+  </div>
+</div></section>
+
+<section id="validation"><div class="wrap">
+  <div class="section-head"><div class="sec-no">03</div><div>
+    <h2 data-lang="en">Validation: three failure modes, not three repeated demos.</h2>
+    <h2 data-lang="zh">驗證：三種不同失敗模式，而不是三次重複 Demo。</h2>
+    <p data-lang="en">Each Golden Test was designed to stress a different part of the operating model. Test 03 also includes a fresh naked-LLM control.</p>
+    <p data-lang="zh">每個 Golden Test 都刻意壓測不同的 Operating Model。Test 03 另外加入全新的 Naked LLM Control。</p>
+  </div></div>
+  <div class="three-col">
+    <article class="paper-card"><div class="index">Research Note I · Japan</div><h3 data-lang="en">Role classification under long-run research</h3><h3 data-lang="zh">長流程中的角色分類與 Audit</h3><p data-lang="en">Outdoor market entry. Tested importer / distributor / retailer / manufacturer distinctions, canonical dedup, skeptical audit, and contact-policy separation.</p><p data-lang="zh">日本戶外市場進入。測試 Importer / Distributor / Retailer / Manufacturer 角色區分、Canonical Dedup、Skeptical Audit 與 Contact Policy 分離。</p><div class="artifact-links"><a href="test-01.html">Read Note I →</a></div></article>
+    <article class="paper-card"><div class="index">Research Note II · Germany</div><h3 data-lang="en">Mission Revision under contradictory evidence</h3><h3 data-lang="zh">Evidence 驅動 Mission Revision</h3><p data-lang="en">Industrial water monitoring. Evidence shifted the route-to-market model from DISTRIBUTOR_FIRST to CHANNEL_PLUS_INTEGRATION.</p><p data-lang="zh">德國工業水質監測。市場 Evidence 將原本 DISTRIBUTOR_FIRST 改為 CHANNEL_PLUS_INTEGRATION。</p><div class="artifact-links"><a href="test-02.html">Read Note II →</a></div></article>
+    <article class="paper-card"><div class="index">Research Note III · Canada</div><h3 data-lang="en">ICP discovery, dogfooding, and control</h3><h3 data-lang="zh">ICP Discovery、Dogfooding 與 Control</h3><p data-lang="en">FlyPig used FlyPig to find its own early adopters, then compared the result with a fresh capable LLM operating without FlyPig process rules.</p><p data-lang="zh">FlyPig 用自己找第一批採用者，再和一個完全不用 FlyPig Process Rules 的全新高階 LLM 對照。</p><div class="artifact-links"><a href="test-03.html">Read Note III →</a></div></article>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><div class="sec-no">04</div><div>
+    <h2 data-lang="en">What the evidence supports — and what it does not.</h2>
+    <h2 data-lang="zh">Evidence 支持什麼，又不支持什麼。</h2>
+    <p data-lang="en">The claim is intentionally narrower than “FlyPig beats ChatGPT.”</p>
+    <p data-lang="zh">我們刻意不把結論寫成「FlyPig 打敗 ChatGPT」。</p>
+  </div></div>
+  <div class="two-col">
+    <div>
+      <div class="claim-box"><p data-lang="en">A capable LLM can already produce excellent one-shot prospect research. FlyPig's value is making critical practices persistent, inspectable, and required across long, stateful work.</p><p data-lang="zh">能力足夠的 LLM 本來就能做出很好的單次 Prospect Research。FlyPig 的價值，是把重要做法變成長流程中持久、可檢查、而且必須執行的 Operating Discipline。</p></div>
+      <p class="note" data-lang="en">The strong naked-LLM control result is preserved publicly. It also exposed a weakness in the original FlyPig search breadth, which led directly to the Discovery Diversity Check.</p>
+      <p class="note" data-lang="zh">Naked LLM Control 的強結果被完整公開保留。它也反過來暴露 FlyPig 原始 Search Breadth 的弱點，直接促使 Core 加入 Discovery Diversity Check。</p>
+    </div>
+    <div class="limitations"><h3 data-lang="en">Known limitations</h3><h3 data-lang="zh">已知限制</h3>
+      <ul data-lang="en"><li>Qualification is not reply, conversion, or revenue prediction.</li><li>Same-model skeptical audit is not statistically independent review.</li><li>Public information cannot reveal private procurement or partnership appetite.</li><li>Exact ranking still depends on product, economics, logistics, and market constraints.</li></ul>
+      <ul data-lang="zh"><li>Qualification 不等於 Reply、Conversion 或 Revenue Prediction。</li><li>同一模型的 Skeptical Audit 不等於統計獨立的第二模型審查。</li><li>公開資訊無法證明 Private Procurement 或 Partnership Appetite。</li><li>最終優先順序仍會受到產品、價格、物流與市場限制影響。</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><div class="sec-no">05</div><div>
+    <h2 data-lang="en">Who benefits most from the Open Core.</h2>
+    <h2 data-lang="zh">哪些使用者最能從 Open Core 得到價值。</h2>
+    <p data-lang="en">The strongest fit is not “anyone who does outreach.” It is teams whose work repeatedly depends on research quality and target-account judgment.</p>
+    <p data-lang="zh">最佳 Fit 不是「任何會做 Outreach 的人」，而是工作成果反覆依賴研究品質與 Target-account Judgment 的團隊。</p>
+  </div></div>
+  <div class="audience-list">
+    <div class="audience-item"><h3 data-lang="en">International BD / market-entry teams</h3><h3 data-lang="zh">海外 BD / Market-entry 團隊</h3><p data-lang="en">Partner mapping, distributor research, territory exploration, and international account discovery.</p><p data-lang="zh">Partner Mapping、Distributor Research、Territory Exploration 與國際 Target Account Discovery。</p></div>
+    <div class="audience-item"><h3 data-lang="en">GTM / RevOps practitioners</h3><h3 data-lang="zh">GTM / RevOps 實務者</h3><p data-lang="en">Teams that need research discipline before CRM activation, sales sequencing, or downstream automation.</p><p data-lang="zh">在 CRM Activation、Sales Sequencing 或後續 Automation 前，需要更可靠研究流程的團隊。</p></div>
+    <div class="audience-item"><h3 data-lang="en">Consultancies and implementation partners</h3><h3 data-lang="zh">顧問公司與 Implementation Partner</h3><p data-lang="en">Firms that perform prospect, partner, or market research repeatedly across multiple clients.</p><p data-lang="zh">替多個 Client 反覆執行 Prospect、Partner 或 Market Research 的服務團隊。</p></div>
+    <div class="audience-item"><h3 data-lang="en">AI / Agent workflow builders</h3><h3 data-lang="zh">AI / Agent Workflow 建置者</h3><p data-lang="en">Builders who want a reusable, inspectable prospect-research process rather than another closed lead-generation black box.</p><p data-lang="zh">需要可重用、可檢查 Prospect Research Process，而不是另一個封閉 Lead-generation Black Box 的建置者。</p></div>
+  </div>
+</div></section>
+<section class="cta-section"><div class="wrap">
+    <div class="section-head"><div class="sec-no">ACCESS</div>
+      <div><h2 data-lang="en">Three ways to use FlyPig.</h2><h2 data-lang="zh">三種使用 FlyPig 的方式。</h2>
+      <p data-lang="en">Start with the open research system, wait for the controlled execution product, or commission FlyPig to run the project for you.</p>
+      <p data-lang="zh">直接使用開源研究系統、等待 Controlled Outreach 進階版，或直接委託 FlyPig 執行完整專案。</p></div>
+    </div>
+    <div class="cta-grid">
+      <div class="cta-card"><div class="badge">01 · OPEN SOURCE</div><h3 data-lang="en">Use the Open Core</h3><h3 data-lang="zh">使用開源 Open Core</h3>
+        <p data-lang="en">Read the Skills directly in your LLM / Agent environment. No runtime to install. Primary output: a disciplined Qualified Prospect Tracker.</p>
+        <p data-lang="zh">讓你的 LLM / Agent 直接讀取 Skills。沒有 runtime 要安裝，主要產出是一份有紀律、可延續的 Qualified Prospect Tracker。</p>
+        <div class="cta-action"><a class="btn primary" href="https://github.com/mkhsu2002/flypig-ai-outreach-engine"><span data-lang="en">Open GitHub Repository</span><span data-lang="zh">前往開源 Repo</span></a></div>
+      </div>
+      <div class="cta-card"><div class="badge">02 · COMING SOON</div><h3 data-lang="en">Advanced Controlled Outreach</h3><h3 data-lang="zh">進階 Controlled Outreach</h3>
+        <p data-lang="en">A paid execution layer for controlled automated outreach, account-specific message preparation, review gates, and message correction before and during authorized operations.</p>
+        <p data-lang="zh">付費進階版：支援受控的自動 Outreach 寄發、帳戶級信件準備、審核 Gate，以及正式執行前後的內容校正。即將上線。</p>
+        <div class="cta-action"><span class="btn disabled"><span data-lang="en">Coming soon</span><span data-lang="zh">即將上線</span></span></div>
+      </div>
+      <div class="cta-card"><div class="badge">03 · MANAGED SERVICE</div><h3 data-lang="en">Commission FlyPig to run the project</h3><h3 data-lang="zh">委託 FlyPig 專案代操作</h3>
+        <p data-lang="en">For teams that want results rather than setup. FlyPig brings extensive hands-on market-development experience, evidence-first research, precision, and efficient execution.</p>
+        <p data-lang="zh">適合希望直接取得成果、而不是自己摸索流程的團隊。FlyPig 以深厚的市場開發實務經驗、Evidence-first 研究方式，追求精準與高效率執行。</p>
+        <div class="cta-action"><a class="btn" href="managed-service.html"><span data-lang="en">Submit a project brief</span><span data-lang="zh">填寫專案需求表</span></a></div>
+      </div>
+    </div>
+  </div></section>
+</main><footer><div class="wrap footer-row"><div>FlyPig AI Outreach Engine v0.1.0 · Apache-2.0 Open Core</div><div>Research, evidence, and process discipline before execution.</div></div></footer></body></html>
