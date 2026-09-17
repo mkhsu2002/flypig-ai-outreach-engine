@@ -51,6 +51,15 @@ Mission Discovery
 19. Optional Knowledge Pack interface
 20. Apache License 2.0 with separate FlyPig AI trademark boundary
 
+### Documentation and interpretation hardening
+
+- English and Traditional Chinese READMEs explicitly define the Open Core as an LLM-native research workflow with no application runtime to install or deploy.
+- Added explicit anti-misread guidance covering scraping, LinkedIn automation, email personalization/sending, reply tracking, Python, Docker, n8n, SMTP, and other capabilities that are not implemented by the public Core.
+- Added bilingual `AGENTS.md` as the authoritative interpretation boundary for AI assistants, coding agents, repository summarizers, and automated documentation systems.
+- Shortened the root README's downstream commercial-layer description so excluded execution concepts do not dominate repository summaries.
+- Added a bilingual static landing site under `docs/` with one overview page and dedicated Test 01, Test 02, and Test 03 pages.
+- The static site requires no build tool, package manager, server runtime, or application framework.
+
 ### Validation included
 
 - Golden Test 01: Japan outdoor-market role classification and process regression
@@ -64,6 +73,6 @@ The control run produced a strong result and directly motivated the Discovery Di
 
 The public Core intentionally stops at the qualified Tracker.
 
-Formal message strategy, message drafting, independent pre-send review, approval-controlled sending, mailbox monitoring, reply classification, bounce / opt-out handling, and controlled follow-up are outside the v0.1 Open Core.
+Downstream message preparation, sending, mailbox/reply operations, and follow-up are outside the v0.1 Open Core and are not implemented in this repository.
 
 No FlyPig runtime, API, Python environment, dedicated UI, or multi-agent framework is required.
