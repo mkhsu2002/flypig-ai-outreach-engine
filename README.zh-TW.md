@@ -2,21 +2,79 @@
 
 [English](README.md) | 繁體中文
 
-一套用於讓 LLM 更有紀律地執行潛在客戶研究與資格判定的開源 Skill 系統。
-
-FlyPig AI Outreach Engine 幫助企業把一個模糊的市場開發想法，逐步轉化成一份經過研究、具備證據支持的 Qualified Prospect Tracker（合格潛在客戶追蹤表）。
-
-它並不是要讓底層 LLM 變得更聰明。
-
-它的目的是把重要的研究行為變成明確、強制、有狀態、可稽核的流程。
+一套讓 LLM 更有紀律地執行潛在客戶研究與資格判定的開源、LLM-native Skill 系統。
 
 > LLM knows how. FlyPig makes sure the process actually requires it.
 >
 > LLM 本來就知道怎麼做；FlyPig 確保流程真的要求它去做。
 
-不需要 FlyPig Runtime、API、專用 UI，也不需要 Multi-Agent Framework。
+## 先看這裡：這個 Repository 到底是什麼
 
-預設執行模式是一個能力足夠的 LLM。ChatGPT、Claude、OpenClaw、Hermes Agents，或其他合適的環境，都可以依序執行這些 Skills。
+FlyPig AI Outreach Engine Open Core 是一組讓 LLM 直接讀取與執行的 operating instructions、Skills、schemas、templates 與 validation cases。
+
+它的預設使用方式，是讓 ChatGPT、Claude、OpenClaw、Hermes Agents 或其他能力足夠的 LLM / Agent 環境直接讀取這個 repository，並依照流程執行。
+
+沒有需要安裝或部署的服務。
+
+最低需求只有：
+
+```text
+一個能力足夠的 LLM / Agent
+可使用目前公開 Web 資訊進行研究
+你的公司 / 產品 / 市場背景
+足以維持一份 canonical Tracker 的狀態延續能力
+```
+
+主要公開產出：
+
+```text
+Qualified Prospect Tracker
+```
+
+公開版流程就在這裡停止。
+
+## 這個 Repository 不是什麼
+
+這個 Open Core 不是：
+
+```text
+Web scraper
+LinkedIn automation tool
+Lead-harvesting crawler
+Email personalization engine
+Cold-email sender
+Multi-channel outreach platform
+Inbox / reply tracking system
+CRM execution service
+Python service
+n8n workflow
+Docker application
+SaaS runtime
+```
+
+Open Core 不需要：
+
+```text
+Python
+Node.js
+Docker
+Docker Compose
+n8n
+SMTP
+SendGrid
+Apollo
+SerpAPI
+Apify
+特定的 OpenAI API Key
+FlyPig API
+FlyPig server
+FlyPig 專用 UI
+Multi-Agent Framework
+```
+
+如果某個 AI 把這個 repository 解讀成需要部署的 Python / n8n / Docker Outreach 系統，或聲稱它會自動抓 LinkedIn、產生個人化冷郵件、寄信或追蹤回覆，那都不是 public v0.1.0 Open Core 的正確解讀。
+
+Authoritative scope boundary 也請參考 `AGENTS.md` 與 `docs/04_REQUIREMENTS.md`。
 
 ## 為什麼會有這個專案
 
@@ -38,33 +96,11 @@ Fact 和 hypothesis 開始混在一起
 最初的市場開發目標變得越來越模糊
 ```
 
-而這種漂移不只影響名單，也會一路影響後續 Outreach。即使一封信寫得非常流暢，如果模型誤判了對方究竟是 distributor、retailer、manufacturer、integrator 還是 buyer，商業語境仍然可能完全錯誤。
+這種研究漂移也會一路污染後續商務溝通。即使文字本身寫得很流暢，如果底層研究把 distributor、retailer、manufacturer、integrator 或 buyer 搞錯，整個商業語境仍然可能錯誤。
 
-FlyPig 因此被建立出來，用來讓這些重要的研究檢查持續存在，而不是期待模型在一個很長的任務中自己一直記得。
+FlyPig 因此被建立出來，用來讓重要的研究檢查持續存在，而不是期待模型在一個很長的任務中自己一直記得。
 
 詳見 `docs/15_WHY_FLYPIG_EXISTS.md`。
-
-## 主要產出：Qualified Prospect Tracker
-
-Open Core 在整個 campaign 中維持一份 canonical Tracker。
-
-流程一開始，LLM 應該提供一個簡單的儲存方式選擇：
-
-```text
-Google Sheets  有連線時建議使用
-Local CSV      預設
-Other          可選
-```
-
-如果使用者沒有選擇，就以：
-
-`templates/PROSPECT_TRACKER.csv`
-
-作為 local CSV 的預設結構。
-
-Tracker 不是最後才匯出的一份一次性報告。Prospect Discovery 一開始就會建立／更新資料，後續 Skills 持續修改同一批 canonical records。
-
-詳見 `docs/13_PROSPECT_TRACKER.md`。
 
 ## 公開版工作流程
 
@@ -93,6 +129,30 @@ Qualified Prospect Tracker
 ```
 
 任何 prospect 在沒有取得 `AUDIT_PASS` 前，都不能進入 `SHORTLIST_READY`。
+
+## 主要產出：Qualified Prospect Tracker
+
+Open Core 在整個 campaign 中維持一份 canonical Tracker。
+
+流程一開始，LLM 應該提供一個簡單的儲存方式選擇：
+
+```text
+Google Sheets  有連線時建議使用
+Local CSV      預設
+Other          可選
+```
+
+如果使用者沒有選擇，就以：
+
+`templates/PROSPECT_TRACKER.csv`
+
+作為 local CSV 的預設結構。
+
+Tracker 不是最後才匯出的一份一次性報告。Prospect Discovery 一開始就會建立／更新資料，後續 Skills 持續修改同一批 canonical records。
+
+PASS、HOLD、SECONDARY 也會保留成研究記憶，不會只留下漂亮的 shortlist。
+
+詳見 `docs/13_PROSPECT_TRACKER.md`。
 
 ## 強制可靠性控制
 
@@ -271,6 +331,8 @@ Control result 原樣保留，沒有事後硬套回 FlyPig 的格式。
 
 ## 五分鐘開始使用
 
+沒有任何 installation step。
+
 讓相容的 LLM 讀取這個 repository，接著可以直接這樣說：
 
 ```text
@@ -331,30 +393,32 @@ Knowledge Packs 可以加入特定市場、產業或通路的 intelligence。
 
 詳見 `docs/10_KNOWLEDGE_PACK_INTERFACE.md`。
 
-## Open Core 到哪裡停止
+## Open Core 邊界
 
-公開版專案刻意在 Qualified Prospect Tracker 停止。
+public v0.1.0 repository 的終點，是完成研究、Audit、並保留 contact-route 狀態的 Qualified Prospect Tracker。
 
-它不包含 FlyPig private Controlled Outreach layer 中的：
+後續 message preparation、sending、mailbox / reply operations、follow-up 都不屬於這個 Open Core，也沒有在這個 repository 中實作。
+
+產品邊界詳見 `docs/07_OPEN_CORE.md`。
+
+## Landing Page 與 Test 分頁
+
+靜態網站原始檔：
 
 ```text
-Account-specific formal outreach strategy
-Message preparation
-Independent pre-send review
-Approval-controlled sending
-Mailbox monitoring
-Reply classification
-Bounce / opt-out operations
-Controlled follow-up
-Execution audit trail
+docs/index.html
+docs/test-01.html
+docs/test-02.html
+docs/test-03.html
 ```
 
-商業版 execution layer 從 qualified Tracker 之後開始，重點是在真實 Outreach 中安全且一致地控制正式執行。
+網站只使用 HTML / CSS / JavaScript，不需要任何 build environment。
 
 ## Repository 結構
 
 ```text
 QUICK_START.md
+AGENTS.md
 
 skills/
   INTERACTION_PROTOCOL.md
@@ -372,6 +436,10 @@ schemas/
   state-machine.yaml
 
 docs/
+  index.html
+  test-01.html
+  test-02.html
+  test-03.html
   00_OVERVIEW.md
   01_NO_CODE_GUIDE.md
   02_ARCHITECTURE.md
@@ -431,6 +499,8 @@ FlyPig AI 名稱、Logo 與產品識別屬於獨立的 trademark boundary。詳�
 Business user：`QUICK_START.md`
 
 LLM / Agent operator：`prompts/START_HERE.md`
+
+AI interpretation boundary：`AGENTS.md`
 
 為什麼有 FlyPig：`docs/15_WHY_FLYPIG_EXISTS.md`
 
