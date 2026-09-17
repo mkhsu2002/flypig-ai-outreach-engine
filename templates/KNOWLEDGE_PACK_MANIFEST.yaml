@@ -1,0 +1,69 @@
+manifest_version: 0.2.0
+pack:
+  name: example-pack
+  version: 0.1.0
+  type: market | country | region | industry | research_type | customer_private
+  status: draft | beta | stable
+  compatible_core: ">=0.1.0 <0.2.0"
+  description: Short description of the intelligence layer.
+
+applies_to:
+  markets: []
+  industries: []
+  research_types: []
+  organization_types: []
+
+extends_skills:
+  mission_discovery:
+    files: []
+  prospect_discovery:
+    files: []
+  account_research:
+    files: []
+  qualification:
+    files: []
+  prospect_audit:
+    files: []
+  contact_verification:
+    files: []
+
+load_order:
+  - core_interaction_protocol
+  - core_active_skill
+  - this_pack
+  - more_specific_pack_if_applicable
+  - customer_private_rules
+  - campaign_and_prospect_state
+
+precedence:
+  may_override:
+    - generic commercial or research defaults within the declared scope
+  may_not_override:
+    - canonical_tracker requirement
+    - deduplication requirement
+    - discovery_diversity requirement
+    - evidence discipline
+    - fact_vs_hypothesis separation
+    - contradictory_evidence preservation
+    - prospect_audit requirement
+    - privacy restrictions
+    - published_contact_restrictions
+    - explicit campaign exclusions
+    - mission_revision visibility
+    - stop_condition requirement
+
+metadata:
+  last_reviewed: YYYY-MM-DD
+  known_limitations: []
+  maintainer: null
+
+handoff_requirements:
+  record_pack_name: true
+  record_pack_version: true
+  preserve_pack_affected_decisions: true
+  preserve_pack_affected_hypotheses: true
+
+notes:
+  - A Knowledge Pack is an LLM-readable intelligence overlay, not a software plugin requirement.
+  - The LLM or agent environment composes the Core and Pack layers.
+  - Packs are optional and are not the primary Free / Paid boundary.

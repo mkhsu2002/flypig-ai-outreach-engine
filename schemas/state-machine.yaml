@@ -1,0 +1,70 @@
+schema_version: 0.2.1
+object: prospect_research_state_machine
+states:
+  - discovered
+  - researched
+  - qualified
+  - audit_passed
+  - secondary
+  - hold
+  - pass
+  - contact_verified
+  - shortlist_ready
+transitions:
+  discovered:
+    allowed:
+      - researched
+      - hold
+      - pass
+  researched:
+    allowed:
+      - qualified
+      - secondary
+      - hold
+      - pass
+  qualified:
+    allowed:
+      - audit_passed
+      - researched
+      - secondary
+      - hold
+      - pass
+  audit_passed:
+    allowed:
+      - contact_verified
+      - shortlist_ready
+      - hold
+  secondary:
+    allowed:
+      - researched
+      - hold
+      - pass
+  hold:
+    allowed:
+      - researched
+      - secondary
+      - pass
+  contact_verified:
+    allowed:
+      - shortlist_ready
+      - hold
+  shortlist_ready:
+    allowed: []
+  pass:
+    allowed: []
+rules:
+  - Discovery does not imply qualification.
+  - Deduplication is mandatory before a new canonical prospect record is created.
+  - Before the candidate universe materially converges, the campaign-level Discovery Diversity Check must be recorded when alternative routes are plausible.
+  - A mission_revision_signal from Discovery Diversity or repeated downstream evidence must return control to Mission Discovery rather than silently redefining the target model.
+  - Qualified status requires evidence-backed commercial relevance.
+  - Every qualified prospect must pass Prospect Audit before Contact Verification or shortlist completion.
+  - Prospect Audit must actively try to falsify the prior qualification rather than merely restate it.
+  - Commercial fit and contact-route suitability are separate decisions.
+  - A commercially qualified account may have an unresolved or do_not_use contact route.
+  - A contact route must never be guessed.
+  - Contact verification may remain unresolved without invalidating an otherwise qualified prospect; document the uncertainty.
+  - A batch review checkpoint is required after every 5 newly researched prospects by default.
+  - shortlist_ready is the terminal success state for the public Open Core.
+  - pass is terminal for the current mission but may be reconsidered in a future mission version.
+  - External message drafting, sending, reply monitoring, and follow-up are outside the public state machine.

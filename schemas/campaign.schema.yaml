@@ -1,0 +1,139 @@
+schema_version: 0.2.0
+object: campaign
+required:
+  - campaign_id
+  - company
+  - objective
+  - target_market
+  - target_organization_types
+fields:
+  campaign_id:
+    type: string
+  mission_version:
+    type: string
+    default: v1
+  mission_status:
+    type: string
+    enum:
+      - ready
+      - partially_ready
+      - hold
+    default: partially_ready
+  user_intent_summary:
+    type: string
+    nullable: true
+  company:
+    type: string
+  website:
+    type: string
+    nullable: true
+  offer:
+    type: string
+  objective:
+    type: string
+  target_market:
+    type: string
+  target_organization_types:
+    type: array
+    items: string
+  commercial_relationship_to_explore:
+    type: array
+    items: string
+  ideal_contact_roles:
+    type: array
+    items: string
+  recipient_value_hypothesis:
+    type: string
+  language:
+    type: string
+  exclusions:
+    type: array
+    items: string
+  prohibited_implications:
+    type: array
+    items: string
+  approved_research_sources:
+    type: array
+    items: string
+  acceptable_contact_route_types:
+    type: array
+    items: string
+  first_batch_size:
+    type: integer
+    default: 5
+  tracker_format:
+    type: string
+    enum:
+      - google_sheets
+      - local_csv
+      - other
+    default: local_csv
+  tracker_location:
+    type: string
+    nullable: true
+  tracker_template:
+    type: string
+    default: templates/PROSPECT_TRACKER.csv
+  tracker_is_canonical:
+    type: boolean
+    default: true
+  discovery_diversity_status:
+    type: string
+    enum:
+      - not_checked
+      - adequate
+      - expand_search
+      - mission_revision_signal
+    default: not_checked
+  discovery_diversity_notes:
+    type: array
+    items: string
+  verified_facts:
+    type: array
+    items: object
+  working_hypotheses:
+    type: array
+    items: string
+  open_questions:
+    type: array
+    items: string
+  user_decisions:
+    type: array
+    items: object
+  research_needed:
+    type: array
+    items: string
+  next_best_action:
+    type: string
+    nullable: true
+  success_criteria:
+    type: array
+    items: string
+  core_version:
+    type: string
+    nullable: true
+  knowledge_packs:
+    type: array
+    items:
+      name: string
+      version: string
+      type: string
+  open_core_scope:
+    type: string
+    value: research_and_qualification_only
+  created_at:
+    type: datetime
+  updated_at:
+    type: datetime
+principles:
+  - The mission may begin as a working hypothesis and should be versioned when material assumptions change.
+  - Public facts should be researched before asking the user when reliable sources are available.
+  - Verified facts, working hypotheses, user decisions, and open questions must remain distinguishable.
+  - Evidence is required for material prospect claims.
+  - Discovery does not imply qualification.
+  - Discovery Diversity Check should be recorded before the candidate universe materially converges when alternative routes are plausible.
+  - The campaign should maintain one canonical Qualified Prospect Tracker.
+  - Google Sheets is recommended when available; local CSV is the default when no storage preference is selected.
+  - Tracker setup must not block research.
+  - The public Core ends at a qualified prospect tracker and contact-route verification.
+  - Message drafting, sending, reply monitoring, and follow-up are outside the public campaign schema.

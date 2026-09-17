@@ -1,0 +1,139 @@
+schema_version: 0.2.1
+object: prospect
+required:
+  - prospect_id
+  - campaign_id
+  - organization
+  - state
+fields:
+  prospect_id:
+    type: string
+  campaign_id:
+    type: string
+  organization:
+    type: string
+  country:
+    type: string
+  website:
+    type: string
+    nullable: true
+  canonical_domain:
+    type: string
+    nullable: true
+  aliases:
+    type: array
+    items: string
+  duplicate_check_status:
+    type: string
+    enum:
+      - not_checked
+      - unique
+      - duplicate_merge
+      - identity_uncertain
+  duplicate_of_prospect_id:
+    type: string
+    nullable: true
+  business_role:
+    type: string
+    nullable: true
+  discovery_reason:
+    type: string
+  discovery_source:
+    type: string
+    nullable: true
+  verified_facts:
+    type: array
+    items: object
+  evidence:
+    type: array
+    items:
+      source: string
+      source_type: string
+      supports: string
+      checked_at: datetime
+  contradictory_evidence:
+    type: array
+    items: object
+  hypotheses:
+    type: array
+    items: string
+  unknowns:
+    type: array
+    items: string
+  qualification_status:
+    type: string
+    description: Current effective commercial status after all completed qualification and audit gates.
+    enum:
+      - not_reviewed
+      - qualified
+      - secondary
+      - hold
+      - pass
+  qualification_reason:
+    type: string
+  confidence:
+    type: string
+    nullable: true
+  audit_result:
+    type: string
+    enum:
+      - not_audited
+      - audit_pass
+      - research_repair
+      - downgrade_secondary
+      - hold
+      - pass
+      - duplicate_merge
+  audit_reason:
+    type: string
+    nullable: true
+  counter_evidence_summary:
+    type: string
+    nullable: true
+  contact_policy_precheck:
+    type: string
+    enum:
+      - not_checked
+      - allow_business_inquiry
+      - general_only
+      - prohibit_solicitation
+      - unresolved
+  recommended_contact_function:
+    type: string
+    nullable: true
+  contact_name:
+    type: string
+    nullable: true
+  contact_route:
+    type: string
+    nullable: true
+  contact_route_status:
+    type: string
+    enum:
+      - not_checked
+      - verified_role_contact
+      - official_general_contact
+      - official_form
+      - verified_professional_channel
+      - unresolved
+      - do_not_use
+  state:
+    type: string
+  shortlist_reason:
+    type: string
+    nullable: true
+  next_recommended_human_action:
+    type: string
+    nullable: true
+  notes:
+    type: array
+    items: string
+principles:
+  - This schema ends at qualified prospect research, mandatory prospect audit, and contact-route verification.
+  - It does not contain message, approval, send, reply, or follow-up state.
+  - Evidence, contradictory evidence, hypotheses, and unknowns must remain separate.
+  - Deduplication must be completed before a new canonical row is created.
+  - A qualified prospect cannot reach shortlist_ready without audit_result audit_pass.
+  - qualification_status always represents the currently effective status after completed gates; audit_result preserves audit history.
+  - Commercial fit and contact-route suitability are separate decisions.
+  - Private contact routes must not be guessed.

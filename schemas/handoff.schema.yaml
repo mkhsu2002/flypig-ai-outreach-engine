@@ -1,0 +1,117 @@
+schema_version: 0.2.0
+object: llm_handoff
+purpose: Preserve enough reasoning and tracker state for another LLM or agent to continue without restarting the campaign.
+required:
+  - campaign_id
+  - current_stage
+  - next_best_action
+fields:
+  campaign_id:
+    type: string
+  mission_version:
+    type: string
+    nullable: true
+  prospect_id:
+    type: string
+    nullable: true
+  current_stage:
+    type: string
+  current_state:
+    type: string
+    nullable: true
+  user_intent_summary:
+    type: string
+  tracker_format:
+    type: string
+    enum:
+      - google_sheets
+      - local_csv
+      - other
+    default: local_csv
+  tracker_location:
+    type: string
+    nullable: true
+  tracker_template:
+    type: string
+    nullable: true
+  discovery_diversity_status:
+    type: string
+    enum:
+      - not_checked
+      - adequate
+      - expand_search
+      - mission_revision_signal
+    default: not_checked
+  discovery_diversity_notes:
+    type: array
+    items: string
+  verified_facts:
+    type: array
+    items: object
+  evidence:
+    type: array
+    items:
+      source: string
+      supports: string
+      checked_at: datetime
+  contradictory_evidence:
+    type: array
+    items: object
+  working_hypotheses:
+    type: array
+    items: string
+  open_questions:
+    type: array
+    items: string
+  questions_already_asked:
+    type: array
+    items: string
+  user_decisions:
+    type: array
+    items:
+      decision: string
+      context: string
+      decided_at: datetime
+  research_completed:
+    type: array
+    items: string
+  research_needed:
+    type: array
+    items: string
+  material_constraints:
+    type: array
+    items: string
+  prohibited_implications:
+    type: array
+    items: string
+  decision:
+    type: string
+    nullable: true
+  decision_reason:
+    type: string
+    nullable: true
+  active_knowledge_layers:
+    type: array
+    items:
+      name: string
+      version: string
+      scope: string
+  next_best_action:
+    type: string
+  suggested_next_mode:
+    type: string
+    enum:
+      - research
+      - infer
+      - ask
+      - proceed
+      - stop
+rules:
+  - Do not repeat questions whose answers are already present in user_decisions or verified_facts.
+  - Do not promote working_hypotheses to verified_facts during handoff.
+  - Preserve contradictory evidence and material uncertainty instead of summarizing them away.
+  - Preserve discovery_diversity_status and notes so the receiving LLM knows whether alternative paths have already been tested.
+  - Preserve tracker_format and tracker_location so the receiving LLM continues updating the same canonical prospect tracker.
+  - If tracker storage is unresolved, use local_csv with templates/PROSPECT_TRACKER.csv as the default.
+  - Record active Knowledge Pack versions when overlays affect decisions.
+  - A handoff is a continuity artifact, not proof that an external action occurred.
