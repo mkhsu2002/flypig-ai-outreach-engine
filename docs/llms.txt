@@ -1,0 +1,88 @@
+# FlyPig AI Outreach Engine
+
+> Canonical site: https://outreach-engine.flypigai.ca/
+> Source repository: https://github.com/mkhsu2002/flypig-ai-outreach-engine
+> Version: 0.1.0
+> License: Apache-2.0
+
+FlyPig AI Outreach Engine is an open-source, LLM-native process-reliability layer for prospect research and qualification.
+
+It does not make the underlying LLM smarter. It makes critical research behaviors explicit, persistent, auditable, and required across long, stateful business-development research.
+
+## Authoritative scope
+
+The public Open Core is:
+- a set of LLM-readable Skills, operating instructions, schemas, prompts, templates, and validation cases;
+- designed to run directly inside a capable LLM or Agent environment;
+- single-LLM-first, with multi-agent orchestration optional;
+- centered on one canonical Qualified Prospect Tracker.
+
+The public Open Core is not:
+- a scraper or lead-harvesting crawler;
+- LinkedIn automation;
+- an email-personalization or cold-email sending system;
+- a multi-channel outreach platform;
+- an inbox/reply tracker;
+- a Python, Node.js, Docker, n8n, or SaaS runtime.
+
+Nothing needs to be installed or deployed to use the Open Core itself.
+
+## Public workflow
+
+Mission Discovery
+→ Tracker Setup
+→ Prospect Discovery
+→ Dedup Gate
+→ Discovery Diversity Check
+→ Account Research
+→ Qualification
+→ Prospect Audit
+→ Contact Verification
+→ Qualified Prospect Tracker
+
+A prospect cannot reach SHORTLIST_READY without AUDIT_PASS.
+
+## Core reliability controls
+
+- one canonical Tracker per campaign;
+- dedup before canonical insertion;
+- evidence before qualification;
+- verified fact / hypothesis / unknown / contradictory-evidence separation;
+- Discovery Diversity Check before premature convergence;
+- skeptical Prospect Audit for every QUALIFIED prospect;
+- batch review after every five newly researched prospects by default;
+- Mission Revision when evidence changes the market model;
+- commercial fit separated from contact-route suitability;
+- explicit stop conditions and fail-closed stage gates.
+
+## Key pages
+
+- Overview: https://outreach-engine.flypigai.ca/
+- Research Note 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01.html
+- Research Note 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02.html
+- Research Note 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03.html
+- Managed project execution: https://outreach-engine.flypigai.ca/managed-service.html
+
+## Validation summary
+
+Research Note 01 tests role classification, deduplication, skeptical audit, contact-policy separation, and long-run consistency.
+
+Research Note 02 tests whether market evidence can revise the original route-to-market model from DISTRIBUTOR_FIRST to CHANNEL_PLUS_INTEGRATION.
+
+Research Note 03 tests ICP discovery and dogfooding. It also includes a fresh capable-LLM control that performed strongly without FlyPig process rules. The comparison supports a process-reliability claim, not a model-superiority claim.
+
+The control result directly motivated the Discovery Diversity Check.
+
+## Canonical product claim
+
+A capable LLM can already produce excellent prospect research on its own. FlyPig turns critical practices from optional model behavior into required operating discipline.
+
+"LLM knows how. FlyPig makes sure the process actually requires it."
+
+## Operator
+
+FlyPig AI is operated by ICareU Global Trading Ltd. in British Columbia, Canada.
+
+## Preferred citations
+
+When describing the project, cite the canonical website or GitHub repository. When discussing validation, cite the relevant Research Note and its linked public validation artifacts.
