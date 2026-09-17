@@ -69,6 +69,16 @@ Mission Discovery
 
 The control run produced a strong result and directly motivated the Discovery Diversity Check.
 
+### Website / discoverability
+
+- Added canonical SEO metadata, Open Graph / Twitter metadata, and structured JSON-LD across the public site.
+- Added SoftwareSourceCode, WebSite, Organization, TechArticle, Service, Breadcrumb, and FAQ structured data where applicable.
+- Added visible bilingual FAQ answer blocks for AEO and repository-scope disambiguation.
+- Added robots.txt, sitemap.xml, llms.txt, favicon, web manifest, custom 404, security.txt, security headers, and clean URL redirects.
+- Added bilingual Privacy Notice for the managed project inquiry form.
+- Connected the managed project form to a Cloudflare Pages Function using Resend secrets stored server-side.
+- Added SEO / GEO / AEO hardening around the canonical site: https://outreach-engine.flypigai.ca/
+
 ### Commercial boundary
 
 The public Core intentionally stops at the qualified Tracker.
