@@ -149,3 +149,13 @@ html[data-language="zh"] td[data-lang="zh"],html[data-language="zh"] th[data-lan
   .brand-sub{display:none}
   .nav{gap:10px}
 }
+
+/* FAQ / AEO */
+.faq-list{display:grid;gap:12px;max-width:980px}
+.faq-list details{border-top:1px solid var(--line);padding:16px 0}
+.faq-list details:last-child{border-bottom:1px solid var(--line)}
+.faq-list summary{cursor:pointer;font-weight:700;font-size:1.02rem;list-style:none;padding-right:32px;position:relative}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";position:absolute;right:4px;top:-2px;font-size:1.3rem;font-weight:400}
+.faq-list details[open] summary::after{content:"−"}
+.faq-list details p{max-width:820px;margin:12px 0 0;color:var(--muted);line-height:1.75}
