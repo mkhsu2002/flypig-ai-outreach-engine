@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://outreach-engine.flypigai.ca/sitemap.xml
