@@ -1,0 +1,15 @@
+.env
+.env.*
+*.key
+*.pem
+secrets/
+credentials/
+campaign-data/
+private-data/
+customer-data/
+prospect-data/
+exports/
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/

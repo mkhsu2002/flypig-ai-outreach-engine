@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible problem in the open-source core
+title: "Bug: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real prospect data, credentials, private email addresses, or confidential campaign information.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use fictional or sanitized data only.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: AI assistant, agent framework, integration, or other relevant setup.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: I confirmed this issue contains no credentials or confidential campaign data.
+          required: true
+        - label: I replaced real prospect information with fictional or sanitized examples.
+          required: true

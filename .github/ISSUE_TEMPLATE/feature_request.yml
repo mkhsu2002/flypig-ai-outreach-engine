@@ -1,0 +1,57 @@
+name: Feature request
+description: Propose an improvement to the open-source prospect-research core
+title: "Feature: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the research or workflow problem first. Avoid submitting proprietary customer data, private prospect data, or commercial Knowledge Pack content.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user, research, reliability, or workflow problem does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: What should the open-source core do differently?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documentation
+        - Mission Discovery
+        - Prospect Discovery / Diversity
+        - Dedup / identity
+        - Account Research
+        - Qualification
+        - Prospect Audit / reliability
+        - Contact Verification
+        - Tracker / handoff
+        - Schema
+        - Integration
+        - Validation / conformance
+        - Example
+        - Developer tooling
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Risks or tradeoffs
+      description: Include any evidence-quality, privacy, state-consistency, compatibility, or process-reliability concerns.
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data safety
+      options:
+        - label: This request contains no credentials or confidential campaign data.
+          required: true
