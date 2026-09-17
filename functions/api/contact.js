@@ -21,6 +21,10 @@ function validEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function singleLine(value, max = 200) {
+  return clean(value, max).replace(/[\r\n]+/g, " ");
+}
+
 function response(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -113,7 +117,7 @@ export async function onRequestPost(context) {
       from: `FlyPig AI Outreach Engine <${env.RESEND_FROM_EMAIL}>`,
       to: [env.RESEND_TO_EMAIL],
       reply_to: email,
-      subject: `New project brief · ${company} · ${market}`,
+      subject: `New project brief · ${singleLine(company)} · ${singleLine(market)}`,
       text: textBody,
       html: `<h2>FlyPig AI Outreach Engine — New project brief</h2><table style="border-collapse:collapse;width:100%;max-width:760px">${htmlRows}</table><p style="margin-top:20px;color:#666">Source: outreach-engine.flypigai.ca managed-service form</p>`
     })
