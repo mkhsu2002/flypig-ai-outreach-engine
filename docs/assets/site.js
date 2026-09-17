@@ -5,7 +5,8 @@
     'test-01.html': {en:'Research Note 01 · Japan Outdoor Market',zh:'研究紀要 01｜日本戶外市場'},
     'test-02.html': {en:'Research Note 02 · Germany Industrial Water',zh:'研究紀要 02｜德國工業水質市場'},
     'test-03.html': {en:'Research Note 03 · FlyPig Dogfooding + Control',zh:'研究紀要 03｜FlyPig Dogfooding + Control'},
-    'managed-service.html': {en:'FlyPig Managed Project Execution',zh:'FlyPig 專案代操作'}
+    'managed-service.html': {en:'FlyPig Managed Project Execution',zh:'FlyPig 專案代操作'},
+    'privacy.html': {en:'Privacy Notice · FlyPig AI Outreach Engine',zh:'隱私說明｜FlyPig AI Outreach Engine'}
   };
   function norm(v){
     const s=(v||'').toLowerCase();
