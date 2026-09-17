@@ -73,26 +73,50 @@ Explicit exclusions:
 The following broad discovery queries were used before company-specific account research:
 
 DQ-01 `Deutschland Wasserqualitätsmessung Systemintegrator Messtechnik Abwasser Prozessinstrumentierung`
+
 DQ-02 `Wasseranalytik Prozessmesstechnik Vertrieb Deutschland pH Leitfähigkeit Trübung Sensoren`
+
 DQ-03 `Systemintegrator Wasser Abwasser Automatisierung Deutschland Messtechnik`
+
 DQ-04 `water quality sensors distributor Germany pH conductivity turbidity process instrumentation`
+
 DQ-05 `Industrie Wasser Messtechnik Händler Deutschland Sensoren Abwasser`
+
 DQ-06 `Deutschland Wasser Abwasser Systemintegrator Automatisierung Messtechnik Sensorik Unternehmen`
+
 DQ-07 `Deutschland Wasseraufbereitung Systemintegrator Prozessmesstechnik pH Leitfähigkeit Trübung`
+
 DQ-08 `"Wasser und Abwasser" Systemintegrator Automatisierung Deutschland`
+
 DQ-09 `Wasseranalytik Vertrieb Sensoren Deutschland Unternehmen`
+
 DQ-10 `"Online Messtechnik" Wasser Abwasser Deutschland Unternehmen`
+
 DQ-11 `"Distributor und Systemintegrator" Wasser Deutschland Messtechnik`
+
 DQ-12 `"Systemintegrator" "online-Messtechnik" Wasser Deutschland`
+
 DQ-13 `"Wasserqualität" Systemintegrator Deutschland Sensorik`
+
 DQ-14 `"Abwasser" Messtechnik Distributor Deutschland Sensoren`
+
 DQ-15 German water-industry / association supplier-directory exploration
 
 ## Discovery universe and dedup
 
 42 canonical organizations were entered into the discovery scratch universe.
 
-Repeated appearances were merged using legal/company name, canonical domain, aliases / brands, location and identity checks.
+Repeated appearances were merged using:
+- legal/company name,
+- canonical domain,
+- aliases / brands,
+- location and identity checks.
+
+Examples of repeat patterns:
+- the same integrator appeared through company pages, partner pages and water-sector pages,
+- WTW/Xylem appeared both directly and through authorized distributors,
+- one company appeared under separate water, automation and contact pages,
+- manufacturer brands surfaced repeatedly in searches that were intended to find distributors.
 
 20 organizations were promoted into the full research set because they provided enough role diversity to test the mission.
 
@@ -159,6 +183,9 @@ Prospect Audit:
 - P003 DOWNGRADE_SECONDARY
 - P005 AUDIT_PASS
 
+P003 downgrade reason:
+Real integration capability exists, but proprietary sampling/transmitter products and an established sensor stack weaken the assumption that another external sensor brand would be strategically attractive.
+
 ## Batch 2 — P006 to P010
 
 P006 — initial QUALIFIED
@@ -176,11 +203,22 @@ Large installed base in water SCADA/process control.
 P010 — initial QUALIFIED
 Turnkey water/wastewater EMSR engineering and system integration.
 
+### Batch Review BR-02
+
+Observed pattern:
+Automation relevance alone is insufficient. The closer the company gets to field instrumentation selection, MSR design, commissioning and plant integration, the stronger the channel hypothesis.
+
 Prospect Audit:
 - P006 DOWNGRADE_SECONDARY
 - P007 AUDIT_PASS
 - P009 DOWNGRADE_SECONDARY
 - P010 AUDIT_PASS
+
+P006 downgrade:
+Water is a genuine application, but the broader industrial/press-automation identity dominates and public evidence for water-analysis instrumentation sourcing is weak.
+
+P009 downgrade:
+Excellent SCADA/telemetry role, but insufficient evidence that water-quality sensor selection or sourcing is a meaningful part of the business.
 
 Decision: CONTINUE.
 
@@ -201,11 +239,22 @@ Authorized analytical distributor with water-analysis products.
 P015 — PASS
 Relevant water-market technology company, but proprietary measurement/control system makes it the wrong commercial role.
 
+### Batch Review BR-03
+
+Important distinction:
+A company can be extremely relevant to the water market and still be a poor prospect if it is itself an overlapping OEM.
+
 Prospect Audit:
 - P011 AUDIT_PASS
 - P012 DOWNGRADE_SECONDARY
 - P013 AUDIT_PASS
 - P014 DOWNGRADE_SECONDARY
+
+P012 downgrade:
+Very strong project relevance, but new instrumentation-vendor onboarding and procurement pathways are opaque in a large EPC organization.
+
+P014 downgrade:
+Real distributor capability, but strong incumbent WTW/Xylem authorization plus laboratory-oriented channel positioning weakens first-wave fit for a new industrial inline sensor brand.
 
 Decision: CONTINUE.
 
@@ -215,20 +264,34 @@ The final batch intentionally tested high-keyword-overlap false positives.
 
 P016 — PASS
 Own sensor and sensor-to-cloud manufacturer.
+
 P017 — PASS
 Major water-analysis instrument manufacturer/direct sales organization.
+
 P018 — PASS
 Liquid-analysis sensor manufacturer.
+
 P019 — PASS
 Optical/electrochemical water-analysis sensor manufacturer.
+
 P020 — PASS
 German manufacturer of pH/redox/conductivity sensors and integrated measurement/control systems.
+
+### Batch Review BR-04
+
+Finding:
+Keyword similarity is a poor proxy for partner fit.
+
+The final batch contained highly relevant technologies but mostly the wrong business role.
+
+No new channel type appeared.
 
 Decision: STOP_DISCOVERY.
 
 ## Prospect Audit summary
 
 Initial QUALIFIED before audit: 12
+
 AUDIT_PASS: 7
 DOWNGRADE_SECONDARY: 5
 RESEARCH_REPAIR: 0
@@ -238,6 +301,8 @@ Final:
 - 7 QUALIFIED / SHORTLIST_READY
 - 7 SECONDARY
 - 6 PASS
+
+The audit changed 5 of 12 initial QUALIFIED decisions.
 
 ## Contact-verification summary
 
