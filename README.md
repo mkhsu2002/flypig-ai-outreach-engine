@@ -1,5 +1,7 @@
 # FlyPig AI Outreach Engine v0.1.0
 
+English | [繁體中文](README.zh-TW.md)
+
 An open-source Skill system for disciplined LLM prospect research and qualification.
 
 FlyPig AI Outreach Engine helps a business turn an ambiguous market-development idea into a researched, evidence-backed Qualified Prospect Tracker.
