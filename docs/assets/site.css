@@ -224,3 +224,9 @@ html[data-language="zh"] td[data-lang="zh"],html[data-language="zh"] th[data-lan
   .proof-stats strong{font-size:28px}
   .nav-links .nav-cta{padding:4px 8px}
 }
+
+/* Experiment case-study summary */
+.case-outcome{margin-top:34px;padding:22px 24px;background:var(--white);border-top:3px solid var(--ink);border-bottom:1px solid var(--rule);max-width:980px}
+.case-outcome>span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--oxblood);font-weight:800}
+.case-outcome>strong{display:block;font-family:var(--serif);font-size:clamp(25px,3.2vw,38px);font-weight:500;line-height:1.15;margin:7px 0 10px;color:var(--navy)}
+.case-outcome p{margin:0;color:var(--muted);max-width:820px}
