@@ -58,11 +58,11 @@ A prospect cannot reach SHORTLIST_READY without AUDIT_PASS.
 ## Key pages
 
 - Overview: https://outreach-engine.flypigai.ca/
-- Validation experiments hub: https://outreach-engine.flypigai.ca/experiments.html
-- Experiment 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01.html
-- Experiment 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02.html
-- Experiment 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03.html
-- Managed project execution: https://outreach-engine.flypigai.ca/managed-service.html
+- Validation experiments hub: https://outreach-engine.flypigai.ca/experiments
+- Experiment 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01
+- Experiment 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02
+- Experiment 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03
+- Managed project execution: https://outreach-engine.flypigai.ca/managed-service
 
 ## Validation summary
 
