@@ -159,3 +159,38 @@ html[data-language="zh"] td[data-lang="zh"],html[data-language="zh"] th[data-lan
 .faq-list summary::after{content:"+";position:absolute;right:4px;top:-2px;font-size:1.3rem;font-weight:400}
 .faq-list details[open] summary::after{content:"−"}
 .faq-list details p{max-width:820px;margin:12px 0 0;color:var(--muted);line-height:1.75}
+
+/* Simplified product story */
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.btn.dark:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.btn.dark-outline{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn.dark-outline:hover{background:var(--ink);color:var(--white)}
+.cta-section .btn.dark-outline{border-color:#d6dadd;color:var(--white)}
+.cta-section .btn.dark-outline:hover{background:var(--white);color:var(--ink)}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.pill-row span{border:1px solid var(--rule);background:rgba(255,253,248,.65);padding:6px 10px;font-size:11px;letter-spacing:.04em;color:var(--muted)}
+.simple-flow{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--rule);margin-top:22px}
+.simple-step{padding:22px 20px;min-height:220px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(255,253,248,.6)}
+.simple-step>span{font-size:11px;color:var(--oxblood);font-weight:800;letter-spacing:.12em}
+.simple-step h3{font-size:22px;line-height:1.2;margin:20px 0 10px;font-weight:500}
+.simple-step p{margin:0;color:var(--muted);font-size:14px}
+.metric-strip{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
+.metric-strip b{font-family:var(--serif);font-size:20px;color:var(--navy);font-weight:500}
+.light-note{color:#b8c1c7;margin-top:24px}
+
+@media(max-width:980px){
+  .nav{flex-wrap:wrap;padding:10px 0;gap:10px 14px}
+  .nav-links{order:3;width:100%;margin-left:0;display:flex;gap:16px;overflow-x:auto;padding-bottom:2px}
+  .nav-links a:not(.keep){display:inline}
+  .nav-links a{white-space:nowrap}
+  .lang-toggle{margin-left:auto}
+  .simple-flow{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+  .simple-flow{grid-template-columns:1fr}
+  .simple-step{min-height:0}
+  .hero-actions .btn{width:100%}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:12px}
+}
