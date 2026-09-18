@@ -58,18 +58,19 @@ A prospect cannot reach SHORTLIST_READY without AUDIT_PASS.
 ## Key pages
 
 - Overview: https://outreach-engine.flypigai.ca/
-- Research Note 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01.html
-- Research Note 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02.html
-- Research Note 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03.html
+- Validation experiments hub: https://outreach-engine.flypigai.ca/experiments.html
+- Experiment 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01.html
+- Experiment 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02.html
+- Experiment 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03.html
 - Managed project execution: https://outreach-engine.flypigai.ca/managed-service.html
 
 ## Validation summary
 
-Research Note 01 tests role classification, deduplication, skeptical audit, contact-policy separation, and long-run consistency.
+Experiment 01 tests role classification, deduplication, skeptical audit, contact-policy separation, and long-run consistency.
 
-Research Note 02 tests whether market evidence can revise the original route-to-market model from DISTRIBUTOR_FIRST to CHANNEL_PLUS_INTEGRATION.
+Experiment 02 tests whether market evidence can revise the original route-to-market model from DISTRIBUTOR_FIRST to CHANNEL_PLUS_INTEGRATION.
 
-Research Note 03 tests ICP discovery and dogfooding. It also includes a fresh capable-LLM control that performed strongly without FlyPig process rules. The comparison supports a process-reliability claim, not a model-superiority claim.
+Experiment 03 tests ICP discovery and dogfooding. It also includes a fresh capable-LLM control that performed strongly without FlyPig process rules. The comparison supports a process-reliability claim, not a model-superiority claim.
 
 The control result directly motivated the Discovery Diversity Check.
 
