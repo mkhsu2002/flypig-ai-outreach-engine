@@ -15,10 +15,10 @@ Updated 2026-09-19. Replaces obsolete September 17 instructions listing `.html` 
 Cloudflare build command:
 
 ```sh
-python3 scripts/build_site.py --check && python3 scripts/check_site.py && node --test scripts/site.test.mjs
+python3 scripts/build_site.py --check && python3 scripts/check_site.py && node --test scripts/site.test.mjs tests/*.test.mjs
 ```
 
-Build watch includes: `docs/*.html`, `docs/assets/*`, `docs/_headers`, `docs/_redirects`, `docs/robots.txt`, `docs/sitemap.xml`, `docs/llms.txt`, `docs/site.webmanifest`, `docs/.well-known/*`, `site/*`, `scripts/*`, `functions/*`, `wrangler.*`, `package*.json`. Excludes: `*.md`. Cloudflare wildcards match nested paths. README, audit and handoff-only edits do not trigger deployment. GitHub site checks also use path filtering and concurrency cancellation; no cron is added.
+Build watch includes: `docs/*.html`, `docs/assets/*`, `docs/_headers`, `docs/_redirects`, `docs/robots.txt`, `docs/sitemap.xml`, `docs/llms.txt`, `docs/site.webmanifest`, `docs/.well-known/*`, `site/*`, `scripts/*`, `functions/*`, `server/*`, `migrations/*`, `tests/*`, `wrangler.*`, `package*.json`. Excludes: `*.md`. Cloudflare wildcards match nested paths. README, audit and handoff-only edits do not trigger deployment. GitHub site checks also use path filtering and concurrency cancellation; no CI cron is used. The contact backend has a separate daily deployment-side recovery trigger, described below. Cloudflare and CI use Node 24 for SQLite-backed contract tests.
 
 ## Editing and verification
 
@@ -26,7 +26,7 @@ Build watch includes: `docs/*.html`, `docs/assets/*`, `docs/_headers`, `docs/_re
 python3 scripts/build_site.py
 python3 scripts/build_site.py --check
 python3 scripts/check_site.py
-node --test scripts/site.test.mjs
+node --test scripts/site.test.mjs tests/*.test.mjs
 git diff --check
 ```
 
@@ -81,8 +81,8 @@ Visual checks require the canonical `codex-flypig-ai` browser lane. Record unava
 
 Google Search Console requires a verified `flypigai.ca` Domain property or exact subdomain URL-prefix property. Submit `https://outreach-engine.flypigai.ca/sitemap.xml`, inspect both language homepages and representative experiments/service pages. Bing may import a verified Google property. Public HTML checks do not prove ownership, submission, indexing or Core Web Vitals. Keep verification/IndexNow credentials in secure storage, not this repository.
 
-## Contact backend: unresolved existing limitation
+## Contact backend
 
-`functions/api/contact.js` remains the existing `POST /api/contact` contract. Production has deployment-managed `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `RESEND_TO_EMAIL`; preview has none as of the 2026-09-19 API readback. No values were exported or copied. This release makes no backend/schema/binding changes.
+`POST /api/contact` is an event-driven Pages Function backed by the environment-specific `CONTACT_DB` D1 binding. Both production and preview require migration `0001_contact.sql` and deployment-managed `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `RESEND_TO_EMAIL`, and `CONTACT_RECOVERY_TOKEN`. Sender: `info@flypigai.ca`; recipient is private platform configuration; Reply-To is the validated submitter address.
 
-The current function calls Resend directly without persistent request/audit storage or durable idempotency and accepts arbitrary `.pages.dev` origins. It does not meet the global newsletter-worker standard. Future backend work must use `newsletter-worker-standard`, persist before dispatch, restrict origins, enforce actual body-size limits, add durable audit/idempotency/retry and verify preview plus production before changing the frontend contract. No test inquiry was sent or delivery certified by this SEO audit.
+The request is persisted before immediate delivery. The frontend supplies a stable `Idempotency-Key` across failed attempts; permanent sent records and atomic leases prevent duplicate dispatch. Legacy clients without the header use a deterministic payload key. Origins are restricted to this site and its own Pages hosts, and actual request size is bounded. Private payloads are separate from hashed audit records. See [Contact Delivery](CONTACT_DELIVERY.md) for deployment, recovery limits, retention and live evidence. This transactional website backend is not an outbound prospecting or newsletter feature of Open Core.

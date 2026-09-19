@@ -56,7 +56,7 @@ Browser limitation: the canonical lane launcher reported startup, but its MCP re
 ## Remaining work
 
 1. Search monitoring: verify Search Console/Bing access, submit the subdomain sitemap, inspect indexing and collect field performance data. Crawler access is not proof of indexing.
-2. Contact reliability, separate backend work: production sends directly without durable request/audit/idempotency records; preview lacks mail configuration. Apply the global event-driven standard in both environments before a new contract goes live. The existing backend was not modified or certified.
+2. Contact reliability: the original SEO audit did not modify or certify the direct-send backend. A separate September 19 contact-delivery change supersedes that finding with D1 persistence, permanent idempotency, restricted origins and both-environment configuration. Its deployment and live verification status are tracked in [CONTACT_DELIVERY.md](CONTACT_DELIVERY.md), not inferred from this earlier SEO audit.
 3. Social image: replace the real but small 320x168 asset with an original/approved 1200x630 image. Do not merely upscale and claim better source quality.
 4. Repeat desktop/mobile and language-navigation visual checks once the dedicated browser lane is available.
 5. Optional production-alias 301: account Rules Lists and Rulesets APIs returned HTTP 403 / code 10000 with the current Pages-capable OAuth authorization. Cloudflare Bulk Redirects require suitable Rules authorization. The supported noindex plus canonical treatment is used now; no request-intercepting backend was added for this alias.

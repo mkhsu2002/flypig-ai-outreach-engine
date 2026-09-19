@@ -4,6 +4,8 @@
 
 網站維護：雙語原稿位於 `site/pages/`，繁中 metadata 位於 `site/metadata.json`，共用問答位於 `site/faq.json`。修改後執行 `python3 scripts/build_site.py`、`python3 scripts/check_site.py` 與 `node --test scripts/site.test.mjs`，並一併提交產生的 `docs/`。這是文件網站的發布工具，不是使用 Open Core 的執行需求。詳細設定見 [SITE_OPERATIONS.md](SITE_OPERATIONS.md)，稽核結果見 [SEO_AUDIT.md](SEO_AUDIT.md)。
 
+網站問卷通知另由 Cloudflare Pages Functions、D1 與部署平台的 Resend secret 處理。完整網站／表單測試需以 Node 24 執行 `node --test scripts/site.test.mjs tests/*.test.mjs`。兩個環境的部署與寄送驗證見 [CONTACT_DELIVERY.md](CONTACT_DELIVERY.md)；這不代表 Open Core 新增自動陌生開發寄信功能。
+
 [English](README.md) | 繁體中文
 
 官方網站：https://outreach-engine.flypigai.ca/
