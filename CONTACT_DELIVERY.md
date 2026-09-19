@@ -41,5 +41,6 @@ Inspect D1 for `pending`, `sending` with expired lease, and `needs_review`; insp
 
 - 2026-09-19: migration `0001_contact.sql` and required platform bindings/secrets were applied and read back for both environments.
 - Recovery Worker initially deployed as version `b3e9ac15-f89b-4fff-a978-712c6abc610f`; daily schedule accepted by Cloudflare. Live Pages/send/replay checks pending.
+- Initial preview build succeeded. Cloudflare rejected Python's default verification User-Agent with HTTP 403 / code 1010 before Function execution. An explicit `FlyPig-Contact-Verification/1.0` agent returned the expected honeypot response; the operator client and recovery Worker now identify themselves explicitly. No WAF or access policy was disabled.
 
 References: [Cloudflare Pages D1 bindings](https://developers.cloudflare.com/pages/functions/bindings/#d1-databases), [Resend send API](https://resend.com/docs/api-reference/emails/send-email), [Resend idempotency](https://resend.com/docs/dashboard/emails/idempotency-keys).

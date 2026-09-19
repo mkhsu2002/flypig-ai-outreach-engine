@@ -19,7 +19,7 @@ token = tomllib.loads((Path.home() / ".wrangler/config/default.toml").read_text(
 
 
 def http(url, method="GET", body=None, headers=None):
-    request = urllib.request.Request(url, method=method, headers=headers or {}, data=json.dumps(body).encode() if body is not None else None)
+    request = urllib.request.Request(url, method=method, headers={"User-Agent": "FlyPig-Contact-Verification/1.0", **(headers or {})}, data=json.dumps(body).encode() if body is not None else None)
     try:
         with urllib.request.urlopen(request, timeout=40) as response:
             return response.status, json.loads(response.read())
