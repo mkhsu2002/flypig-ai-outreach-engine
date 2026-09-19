@@ -1,6 +1,6 @@
 # Website Inquiry Delivery
 
-Implementation date: 2026-09-19. Live release verification is pending below until evidence is recorded. This replaces the direct-send backend limitation recorded in the earlier SEO audit.
+Implemented and verified live on 2026-09-19. This replaces the direct-send backend limitation recorded in the earlier SEO audit.
 
 ## Contract and security
 
@@ -40,7 +40,11 @@ Inspect D1 for `pending`, `sending` with expired lease, and `needs_review`; insp
 ## Release Evidence
 
 - 2026-09-19: migration `0001_contact.sql` and required platform bindings/secrets were applied and read back for both environments.
-- Recovery Worker initially deployed as version `b3e9ac15-f89b-4fff-a978-712c6abc610f`; daily schedule accepted by Cloudflare. Live Pages/send/replay checks pending.
+- Recovery Worker final code revision: `fd107b4f-e310-4a5b-9011-b116aa3e2d2f`; active version after coordinated secret rotation: `12dbad16-fae1-4ca1-8420-d5dc2e449048`. Deployed code was read back: explicit recovery User-Agent, 30-second timeout, no provider-key references. Actual bindings contain only two endpoint URLs and the trigger secret. Daily 08:17 UTC schedule was read back. Its first scheduled tick is not yet observed; protected live recovery endpoints were exercised directly instead.
 - Initial preview build succeeded. Cloudflare rejected Python's default verification User-Agent with HTTP 403 / code 1010 before Function execution. An explicit `FlyPig-Contact-Verification/1.0` agent returned the expected honeypot response; the operator client and recovery Worker now identify themselves explicitly. No WAF or access policy was disabled.
+- Both preview and production deployed commit `f2e8748fa2aaa7abdcc0d2a2c1559ec51c4cc7a2`. Deployment IDs: preview `de2bc727-0a15-4b7d-99fa-4d6a90cdac67`, production `246a6541-b254-49e5-8112-fc3135df49d4`. Deployment-specific D1 IDs and secret names, not only project settings, match the environment table above.
+- Exactly one controlled owner notification per environment returned `200 sent`; identical replay returned `200 already_sent`. Each request has one provider attempt and durable `accepted`, `sending`, `sent` audit stages. Deployed provider readback returned `last_event: delivered` for both. No customer request or broadcast was sent.
+- Both protected recovery endpoints reject unauthenticated requests with `401`; authorized recovery returned `processed: 0` in each environment without new mail.
+- All 13 Node tests passed, Cloudflare Functions compiled, GitHub Site checks run `35469632099` succeeded, and all 14 production HTML pages passed the live search/schema/link comparison. Dedicated-lane interactive browser verification remains unavailable as recorded in the SEO audit; HTTP delivery and contract checks do not imply a visual browser test.
 
 References: [Cloudflare Pages D1 bindings](https://developers.cloudflare.com/pages/functions/bindings/#d1-databases), [Resend send API](https://resend.com/docs/api-reference/emails/send-email), [Resend idempotency](https://resend.com/docs/dashboard/emails/idempotency-keys).
