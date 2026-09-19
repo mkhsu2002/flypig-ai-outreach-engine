@@ -84,6 +84,33 @@ def fetch(url):
         return response.read().decode()
 
 
+def normalize_cloudflare(html):
+    """Compare actual content while accepting verified edge email/JSD transformations."""
+    doc = Document(html).root
+    def decode_email(encoded):
+        data = bytes.fromhex(encoded)
+        return bytes(value ^ data[0] for value in data[1:]).decode()
+    for node in doc.walk():
+        href = node.attrs.get("href", "")
+        if href.startswith("/cdn-cgi/l/email-protection#"):
+            node.attrs["href"] = "mailto:" + decode_email(href.split("#", 1)[1])
+        children = []
+        for child in node.children:
+            if isinstance(child, str):
+                if child.strip():
+                    children.append(child)
+            elif "data-cfemail" in child.attrs:
+                children.append(decode_email(child.attrs["data-cfemail"]))
+            elif child.tag == "script" and (child.attrs.get("src", "").startswith("/cdn-cgi/scripts/") or
+                    (child.attrs.get("src", "").startswith("https://static.cloudflareinsights.com/beacon.min.js/") and "data-cf-beacon" in child.attrs) or
+                    ("window.__CF$cv$params" in child.text() and "/cdn-cgi/challenge-platform/scripts/jsd/main.js" in child.text())):
+                continue
+            else:
+                children.append(child)
+        node.children = children
+    return doc.html()
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--live", action="store_true")
@@ -95,7 +122,12 @@ if __name__ == "__main__":
             url = BASE + path_for(slug, lang)
             filename = f"zh/{slug}.html" if lang == "zh" and slug != "index" else "zh.html" if lang == "zh" else f"{slug}.html"
             actual = fetch(url) if args.live else (ROOT / "docs" / filename).read_text()
-            assert actual == generated[filename], f"Stale {'production' if args.live else 'generated'} page: {url}"
+            if args.live:
+                actual = normalize_cloudflare(actual)
+                expected = normalize_cloudflare(generated[filename])
+            else:
+                expected = generated[filename]
+            assert actual == expected, f"Stale {'production' if args.live else 'generated'} page: {url}"
             pages[url] = actual
     sitemap = fetch(BASE + "/sitemap.xml") if args.live else (ROOT / "docs/sitemap.xml").read_text()
     check_pages(pages, sitemap)

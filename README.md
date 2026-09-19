@@ -401,16 +401,19 @@ See `docs/07_OPEN_CORE.md` for the product boundary.
 
 ## Landing page and test pages
 
-Static site source:
+Static website sources and generated output:
 
 ```text
-docs/index.html
-docs/test-01.html
-docs/test-02.html
-docs/test-03.html
+site/pages/*.html       bilingual source bodies and English metadata
+site/metadata.json      Chinese metadata and page revision dates
+site/faq.json           shared visible questions and schema
+scripts/build_site.py  dependency-free static renderer
+docs/*.html            generated English pages and Chinese homepage
+docs/zh/*.html         generated Chinese detail pages
+docs/sitemap.xml       generated 14-page bilingual sitemap
 ```
 
-The site is intentionally plain HTML/CSS/JavaScript and requires no build environment.
+The deployed site is plain HTML/CSS/JavaScript. Editing the site uses Python 3.9+ to render and verify committed output; Node runs the small JavaScript behavior checks. Neither tool is required to use the Open Core itself.
 
 ## Repository map
 
@@ -438,6 +441,11 @@ docs/
   test-01.html
   test-02.html
   test-03.html
+  experiments.html
+  managed-service.html
+  privacy.html
+  zh.html
+  zh/
   00_OVERVIEW.md
   01_NO_CODE_GUIDE.md
   02_ARCHITECTURE.md

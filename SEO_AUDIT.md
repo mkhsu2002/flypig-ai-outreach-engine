@@ -12,20 +12,21 @@ This is a separate origin, `outreach-engine.flypigai.ca`, not a parent-site fold
 | P1 | Three experiments lacked JSON-LD despite documentation claiming TechArticle | Shared article/author/publisher/update-date/citation schema and matching visible breadcrumbs |
 | P1 | Separate brand Organization ID; no parent-site discovery link | Reuse parent Organization ID, visible operator/address/contact, localized parent footer and llms links |
 | P1 | Open Core and commissioned service could be confused | Visible direct questions defining scope, outputs, service differences and experiment limitations |
-| P2 | Duplicate production pages.dev HTML; raw Markdown indexable | Host redirect; preview/Markdown noindex headers without hiding them from crawlers |
+| P2 | Duplicate production pages.dev HTML; raw Markdown indexable | Production-alias/preview/Markdown noindex headers and canonical links without hiding them from crawlers |
 | P2 | Incomplete privacy/hub social metadata | Consistent localized title/description/OG/Twitter output |
 | P2 | Long experiment labels risk narrow-screen overflow | Bounded type sizes and word wrapping; crawlable language links |
 | P2 | Cached JS could preserve obsolete automatic locale changes | Content-derived CSS/JS asset versions |
 | P2 | No generation/search-contract gate | Deterministic rendering, stale-output check, 14-page checks and legacy-language tests |
 | P2 | All repository edits triggered deployment | Restrict hosting watch paths; lightweight path-filtered CI without cron |
 | P2 | Operations documentation listed obsolete canonical/schema behavior | Replace with actual inventory and current maintenance instructions |
+| P2 | Live Cloudflare Web Analytics injection was blocked by the site's CSP | Allow only the documented Cloudflare analytics script/connect hosts; no new tracker added |
 
 ## Page-pattern decisions
 
 - Keep/improve overview, experiment hub, three distinct cases, managed research and privacy in both substantive languages.
 - Canonicalize tracking parameters to the same language's clean URL. Legacy explicit language parameters are compatibility links, not sitemap entries.
-- Permanently redirect extensions, trailing slashes and production pages.dev duplicates.
-- Noindex/follow raw Markdown and previews. Keep crawl access so the noindex is readable.
+- Permanently redirect extensions and trailing slashes.
+- Noindex/follow raw Markdown, production pages.dev and previews. Keep crawl access so the noindex is readable. Alias HTML uses the production custom-domain canonical.
 - Return real 404/noindex for nonexistent pages. No catch-all homepage rewrite.
 - No thin taxonomy, search/filter, programmatic local pages or speculative articles were added.
 
@@ -49,6 +50,7 @@ Browser limitation: the canonical lane launcher reported startup, but its MCP re
 2. Contact reliability, separate backend work: production sends directly without durable request/audit/idempotency records; preview lacks mail configuration. Apply the global event-driven standard in both environments before a new contract goes live. The existing backend was not modified or certified.
 3. Social image: replace the real but small 320x168 asset with an original/approved 1200x630 image. Do not merely upscale and claim better source quality.
 4. Repeat desktop/mobile and language-navigation visual checks once the dedicated browser lane is available.
+5. Optional production-alias 301: account Rules Lists and Rulesets APIs returned HTTP 403 / code 10000 with the current Pages-capable OAuth authorization. Cloudflare Bulk Redirects require suitable Rules authorization. The supported noindex plus canonical treatment is used now; no request-intercepting backend was added for this alias.
 
 ## References
 
@@ -57,5 +59,6 @@ Browser limitation: the canonical lane launcher reported startup, but its MCP re
 - Cloudflare clean URLs: https://developers.cloudflare.com/pages/configuration/serving-pages/
 - Cloudflare redirects: https://developers.cloudflare.com/pages/configuration/redirects/
 - Cloudflare build watch paths: https://developers.cloudflare.com/pages/configuration/build-watch-paths/
+- Cloudflare CSP requirements: https://developers.cloudflare.com/fundamentals/reference/policies-compliances/content-security-policies/
 
 Google does not require a special AI schema or AI text file for its AI features. `llms.txt` remains supplementary. No ranking, citation or FAQ rich-result guarantee is made.

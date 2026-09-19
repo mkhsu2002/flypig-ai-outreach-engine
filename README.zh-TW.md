@@ -409,16 +409,19 @@ public v0.1.0 repository 的終點，是完成研究、Audit、並保留 contact
 
 ## Landing Page 與 Test 分頁
 
-靜態網站原始檔：
+靜態網站原稿與產生檔：
 
 ```text
-docs/index.html
-docs/test-01.html
-docs/test-02.html
-docs/test-03.html
+site/pages/*.html       雙語原稿及英文 metadata
+site/metadata.json      繁中 metadata 與頁面修改日期
+site/faq.json           共用可見問答及 schema
+scripts/build_site.py  無第三方依賴的靜態產生器
+docs/*.html            產生的英文頁面與繁中首頁
+docs/zh/*.html         產生的繁中內頁
+docs/sitemap.xml       產生的 14 頁雙語 sitemap
 ```
 
-網站只使用 HTML / CSS / JavaScript，不需要任何 build environment。
+正式網站仍是 HTML / CSS / JavaScript。維護網站時以 Python 3.9+ 產生並驗證提交的靜態檔案，並以 Node 執行少量 JavaScript 行為檢查；使用 Open Core 本身不需要這些工具。
 
 ## Repository 結構
 
@@ -446,6 +449,11 @@ docs/
   test-01.html
   test-02.html
   test-03.html
+  experiments.html
+  managed-service.html
+  privacy.html
+  zh.html
+  zh/
   00_OVERVIEW.md
   01_NO_CODE_GUIDE.md
   02_ARCHITECTURE.md

@@ -51,7 +51,7 @@ All 14 pages are indexable and self-canonical, with reciprocal `en`, `zh-Hant`, 
 - `robots.txt` permits crawling and declares this subdomain's sitemap.
 - Unknown URLs return real 404 with `noindex,follow`.
 - Raw Markdown remains readable but carries `X-Robots-Tag: noindex, follow`. Do not block it in robots; crawlers need to read the header.
-- Production `pages.dev` permanently redirects to the custom host; preview hosts carry `noindex, follow`.
+- Production `pages.dev` and preview hosts carry `noindex, follow`; their HTML canonical links point to the custom host. A host-level 301 requires Cloudflare Bulk Redirects, not a Pages `_redirects` entry. The current OAuth authorization can manage Pages but the account Rules Lists/Rulesets API returned HTTP 403 / code 10000 on 2026-09-19. Do not add an ineffective domain-level `_redirects` rule or a per-request Function solely for this alias.
 - `llms.txt` describes scope, evidence limitations, languages and operator. It is supplementary, not a ranking or AI-citation guarantee.
 
 ## Entity and schema
@@ -67,13 +67,15 @@ Both sites identify FlyPig AI as `https://flypigai.ca/#organization`, legally op
 
 The owned social image is 320x168; dimensions are accurate. A future original 1200x630 asset would improve previews. FAQ markup does not imply eligibility for Google FAQ rich results.
 
+Cloudflare injects Web Analytics on the live custom hostname even though the Pages-level analytics fields are empty. The CSP permits the verified `static.cloudflareinsights.com` script and `cloudflareinsights.com` connection, following Cloudflare's documented requirements. No additional analytics provider or tracking identifier is embedded in source. Live measurement delivery and field metrics still require dashboard/browser verification.
+
 ## Live verification and monitoring
 
 ```sh
 python3 scripts/check_site.py --live
 ```
 
-This checks all 14 production HTML pages against generated output and validates metadata, translations, schemas, sitemap, links, assets and unchanged form inputs. Also check HTTP -> HTTPS, extension -> clean URL, production pages.dev -> custom host, unknown route 404, Markdown noindex and preview noindex. Verify the actual deployed commit through Cloudflare API/GitHub checks.
+This checks all 14 production HTML pages against generated output after decoding Cloudflare email obfuscation and excluding its recognized edge-injected scripts. It validates metadata, translations, schemas, sitemap, links, assets and unchanged form inputs. Also check HTTP -> HTTPS, extension -> clean URL, production pages.dev noindex/canonical, unknown route 404, Markdown noindex and preview noindex. Verify the actual deployed commit through Cloudflare API/GitHub checks.
 
 Visual checks require the canonical `codex-flypig-ai` browser lane. Record unavailable checks honestly; never fall back to another identity.
 
