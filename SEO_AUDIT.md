@@ -40,7 +40,16 @@ The visible organization byline does not invent a human reviewer. Page revision 
 
 Initial public HTTP readback verified seven canonical pages, HTTPS, extension/slash redirects and real 404. It confirmed the three missing experiment schemas, duplicate production pages.dev host and indexable Markdown. Cloudflare API confirmed `main`, `docs`, blank build command, broad watch paths, production mail-secret names and no preview mail secrets/persistence bindings.
 
-The local 14-page metadata/schema/link check passed during implementation. Final release results and public readback will be recorded here after execution.
+Release verification on 2026-09-19:
+
+- Subsite code release: `8a0bd4d`, following `28628d9`; GitHub site check and Cloudflare Pages deployment both succeeded. Production deployment: `fd1839f6-3981-4c53-892b-92e6193aa86d`.
+- All 14 production pages passed generated-content comparison (after recognized Cloudflare edge transformations), canonical, reciprocal hreflang, sitemap, metadata, JSON-LD, FAQ, internal-link, asset-reference and unchanged-form-input checks. Four language-compatibility tests passed.
+- Custom-domain pages returned 200 without noindex. Production pages.dev, deployment preview and raw Markdown returned `X-Robots-Tag: noindex, follow`. HTTPS/extension/trailing-slash normalization and real missing-page 404 were verified. The live CSP permits the existing Cloudflare analytics endpoints.
+- Requests labelled Googlebot, bingbot and OAI-SearchBot returned 200 with article schema. These are HTTP smoke tests, not authenticated crawler visits or proof of indexing.
+- Cloudflare API readback confirmed the new build command and watch-path filtering. The Rules APIs separately returned 403; the optional alias 301 remains unavailable under this authorization.
+- Parent integration release: `1818f3b` in `mkhsu2002/flypigai.ca`; Cloudflare deployment succeeded. Local production build, 115-page export audit, 18 tests and typecheck passed. English/Chinese footer links and parent `llms.txt` were read back from the public domain.
+- The parent build required narrowly fixing two pre-existing metadata/related-reading failures, one XoMotion infographic label overflow and an HTML-entity counting bug in the export auditor. No source-review dates or research claims were advanced. Temporary generated assets were removed after checking they matched the successful exported build.
+- This audit-only completion record is excluded from full CI and production build triggers; deployed code can correctly remain at `8a0bd4d` when the repository tip advances for this record.
 
 Browser limitation: the canonical lane launcher reported startup, but its MCP returned `connect ECONNREFUSED 127.0.0.1:9241`. Browser work stopped without fallback. Desktop/mobile screenshots, console checks, interactive form behavior and field Core Web Vitals remain unverified.
 
