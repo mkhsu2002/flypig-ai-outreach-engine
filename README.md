@@ -4,6 +4,10 @@ English | [繁體中文](README.zh-TW.md)
 
 Official site: https://outreach-engine.flypigai.ca/
 
+Traditional Chinese website: https://outreach-engine.flypigai.ca/zh
+
+Website maintainers: bilingual HTML sources live in `site/pages/`; edit Chinese metadata in `site/metadata.json` and shared questions in `site/faq.json`. Run `python3 scripts/build_site.py`, `python3 scripts/check_site.py`, and `node --test scripts/site.test.mjs` before committing generated `docs/` pages. This dependency-free publishing tool is only for the documentation website, not an Open Core runtime requirement. See [Site Operations](SITE_OPERATIONS.md) and the [SEO/GEO/AEO audit](SEO_AUDIT.md).
+
 An open-source LLM-native Skill system for disciplined prospect research and qualification.
 
 > LLM knows how. FlyPig makes sure the process actually requires it.

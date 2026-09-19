@@ -58,11 +58,15 @@ A prospect cannot reach SHORTLIST_READY without AUDIT_PASS.
 ## Key pages
 
 - Overview: https://outreach-engine.flypigai.ca/
+- 繁體中文總覽: https://outreach-engine.flypigai.ca/zh
 - Validation experiments hub: https://outreach-engine.flypigai.ca/experiments
 - Experiment 01 — Japan outdoor market: https://outreach-engine.flypigai.ca/test-01
 - Experiment 02 — Germany industrial water: https://outreach-engine.flypigai.ca/test-02
 - Experiment 03 — FlyPig dogfooding + naked-LLM control: https://outreach-engine.flypigai.ca/test-03
 - Managed project execution: https://outreach-engine.flypigai.ca/managed-service
+- 委託潛在客戶研究: https://outreach-engine.flypigai.ca/zh/managed-service
+- 繁體中文實驗總覽: https://outreach-engine.flypigai.ca/zh/experiments
+- Privacy: https://outreach-engine.flypigai.ca/privacy
 
 ## Validation summary
 
@@ -82,7 +86,13 @@ A capable LLM can already produce excellent prospect research on its own. FlyPig
 
 ## Operator
 
-FlyPig AI is operated by ICareU Global Trading Ltd. in British Columbia, Canada.
+FlyPig AI is operated by ICareU Global Trading Ltd., 11936 Woodridge Cres., Delta, BC V4E 3H5, Canada.
+Contact: info@flypigai.ca
+Brand and operator information: https://flypigai.ca/about
+Shared organization identity: https://flypigai.ca/#organization
+
+The parent site covers Canada-Taiwan Edge AI and Physical AI intelligence. This subsite owns the distinct prospect-research workflow, its validation experiments, and the managed prospect-research service.
+English pages and Traditional Chinese pages under /zh have separate canonical URLs. Cite the language version actually consulted.
 
 ## Preferred citations
 

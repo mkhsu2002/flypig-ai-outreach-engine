@@ -1,0 +1,37 @@
+{
+  "index": {
+    "modified": "2026-09-19",
+    "zhTitle": "FlyPig AI Outreach Engine｜潛在客戶研究與市場開發",
+    "zhDescription": "FlyPig AI 協助企業研究新市場，查證客戶、經銷商與合作夥伴的商業角色，交付有證據支持的潛在客戶追蹤表。可自行使用開源流程，或委託研究服務。"
+  },
+  "experiments": {
+    "modified": "2026-09-19",
+    "zhTitle": "潛在客戶研究實驗｜FlyPig AI Outreach Engine",
+    "zhDescription": "查看日本戶外市場、德國工業水質市場與加拿大早期採用者三項研究實驗，包含研究流程、資格判定、公開證據與裸 LLM 對照的限制。"
+  },
+  "test-01": {
+    "modified": "2026-09-19",
+    "zhTitle": "實驗 01：日本戶外市場通路研究｜FlyPig AI",
+    "zhDescription": "日本市場研究如何從 44 個候選提及收斂為 12 家有證據支持的潛在客戶，並區分進口商、經銷商、零售商與製造商的商業角色。"
+  },
+  "test-02": {
+    "modified": "2026-09-19",
+    "zhTitle": "實驗 02：德國工業水質市場研究｜FlyPig AI",
+    "zhDescription": "德國工業水質市場研究如何依據實際證據，從尋找經銷商修正為包含系統整合商與工程公司的市場進入策略。"
+  },
+  "test-03": {
+    "modified": "2026-09-19",
+    "zhTitle": "實驗 03：加拿大早期客戶與裸 LLM 對照｜FlyPig AI",
+    "zhDescription": "FlyPig 用自己的研究流程探索加拿大第一批採用者，再與未使用框架的高階 LLM 對照，公開研究結果、發現的盲點與流程改善。"
+  },
+  "managed-service": {
+    "modified": "2026-09-19",
+    "zhTitle": "委託潛在客戶與市場開發研究｜FlyPig AI",
+    "zhDescription": "委託 FlyPig AI 執行市場進入、經銷商與合作夥伴探索、目標客戶查證及名單審核，取得有來源依據的潛在客戶追蹤表。"
+  },
+  "privacy": {
+    "modified": "2026-09-19",
+    "zhTitle": "隱私說明｜FlyPig AI Outreach Engine",
+    "zhDescription": "了解 FlyPig AI Outreach Engine 網站與專案需求表單如何處理聯絡資訊、研究需求及服務供應商資料，以及隱私聯絡方式。"
+  }
+}

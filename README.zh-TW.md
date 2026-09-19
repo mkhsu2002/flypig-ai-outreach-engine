@@ -1,5 +1,9 @@
 # FlyPig AI Outreach Engine v0.1.0
 
+繁體中文網站：https://outreach-engine.flypigai.ca/zh
+
+網站維護：雙語原稿位於 `site/pages/`，繁中 metadata 位於 `site/metadata.json`，共用問答位於 `site/faq.json`。修改後執行 `python3 scripts/build_site.py`、`python3 scripts/check_site.py` 與 `node --test scripts/site.test.mjs`，並一併提交產生的 `docs/`。這是文件網站的發布工具，不是使用 Open Core 的執行需求。詳細設定見 [SITE_OPERATIONS.md](SITE_OPERATIONS.md)，稽核結果見 [SEO_AUDIT.md](SEO_AUDIT.md)。
+
 [English](README.md) | 繁體中文
 
 官方網站：https://outreach-engine.flypigai.ca/

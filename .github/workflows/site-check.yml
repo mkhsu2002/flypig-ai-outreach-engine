@@ -1,0 +1,23 @@
+name: Site checks
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', 'scripts/**', 'docs/*.html', 'docs/zh/**', 'docs/assets/**', 'docs/_headers', 'docs/_redirects', 'docs/robots.txt', 'docs/sitemap.xml', 'docs/llms.txt', 'docs/site.webmanifest', '.github/workflows/site-check.yml']
+  pull_request:
+    paths: ['site/**', 'scripts/**', 'docs/*.html', 'docs/zh/**', 'docs/assets/**', 'docs/_headers', 'docs/_redirects', 'docs/robots.txt', 'docs/sitemap.xml', 'docs/llms.txt', 'docs/site.webmanifest', '.github/workflows/site-check.yml']
+permissions:
+  contents: read
+concurrency:
+  group: site-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 scripts/build_site.py --check
+      - run: python3 scripts/check_site.py
+      - run: node --test scripts/site.test.mjs

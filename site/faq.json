@@ -1,0 +1,18 @@
+[
+  {
+    "en": {"question": "What is FlyPig AI Outreach Engine?", "answer": "The Open Core is an open-source set of LLM-readable Skills, process rules, schemas and templates for prospect research and qualification. It runs inside a capable LLM or Agent with current web research access and maintains one Qualified Prospect Tracker."},
+    "zh": {"question": "FlyPig AI Outreach Engine 是什麼？", "answer": "Open Core 是一套開源的潛在客戶研究與資格判定流程，包含供 LLM 讀取的 Skills、流程規則、Schema 與範本。它在具備即時網頁研究能力的 LLM 或 Agent 中執行，並維護一份 Qualified Prospect Tracker。"}
+  },
+  {
+    "en": {"question": "How is the Open Core different from the managed service?", "answer": "You can use the Apache-2.0 Open Core yourself without installing a FlyPig server. The managed service is a separate commissioned engagement in which FlyPig runs the research, qualification and audit, then delivers an evidence-backed prospect tracker. Scope and terms are discussed after reviewing your brief."},
+    "zh": {"question": "開源核心與委託服務有什麼差別？", "answer": "你可以依 Apache-2.0 授權自行使用 Open Core，不需要安裝 FlyPig 伺服器。委託服務則是由 FlyPig 執行研究、資格判定與審核，交付附有來源證據的潛在客戶追蹤表；範圍與合作條件會在檢視需求後討論。"}
+  },
+  {
+    "en": {"question": "Does the public Open Core send cold emails or automate LinkedIn?", "answer": "No. The public workflow ends at the Qualified Prospect Tracker. Message preparation, email sending, LinkedIn automation, reply tracking and follow-up execution are outside the public Open Core."},
+    "zh": {"question": "公開核心會寄送開發信或自動操作 LinkedIn 嗎？", "answer": "不會。公開流程到 Qualified Prospect Tracker 為止。訊息撰寫、寄信、LinkedIn 自動化、回覆追蹤及後續聯繫執行都不在公開 Open Core 的範圍內。"}
+  },
+  {
+    "en": {"question": "What do the three published experiments demonstrate?", "answer": "They examine commercial-role classification in Japan, evidence-led mission revision in Germany, and early-adopter research in Canada with a fresh LLM control. These are published case studies, not proof of model superiority or guaranteed replies, sales or adoption. Each experiment links to its public validation artifacts."},
+    "zh": {"question": "三項公開實驗能證明什麼？", "answer": "實驗分別檢查日本市場的商業角色分類、德國市場依據證據修正研究任務，以及加拿大早期採用者探索與裸 LLM 對照。這些是公開案例研究，不代表模型比較優越，也不保證回覆、銷售或採用；各實驗均連結到公開驗證資料。"}
+  }
+]

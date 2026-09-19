@@ -16,3 +16,12 @@
 
 /llms.txt
   Cache-Control: public, max-age=3600
+
+/*.md
+  X-Robots-Tag: noindex, follow
+
+/404.html
+  X-Robots-Tag: noindex, follow
+
+https://:preview.flypig-ai-outreach-engine.pages.dev/*
+  X-Robots-Tag: noindex, follow
